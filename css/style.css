@@ -1,0 +1,94 @@
+/*full document style*/
+body{
+	font-family: sans-serif;
+}
+
+
+/*mix it up style */
+
+/*property images*/
+.box{
+	height: 200px;
+	width: 250px;
+	display: inline-block;
+}
+
+.nelson{
+	background-color: #91e6c7;
+}
+
+.christchurch{
+	background-color: #d595aa;
+}
+
+.kaikoura{
+	background-color: #5ecdde;
+}
+
+.queenstown{
+	background-color: #7a339b;
+}
+
+.wanaka{
+	background-color: #f7b50e;
+}
+
+/*control buttons*/
+.control{
+	position: relative;
+	display: inline-block;
+	width: 100px;
+	height: 50px;
+	background-color: #444;
+	cursor: pointer;
+	color: white;
+	border-radius: 10px;
+	border: none;
+	margin-bottom: 10px;
+}
+
+.control[data-filter=".nelson"]{
+	color: #91e6c7;
+}
+
+.control[data-filter=".kaikoura"]{
+	color: #5ecdde;
+}
+
+.control[data-filter=".christchurch"]{
+	color: #d595aa;
+}
+
+.control[data-filter=".queenstown"]{
+	color: #5ecdde;
+}
+
+.control[data-filter=".wanaka"]{
+	color: #d595aa;
+}
+
+.control[data-filter="none"]{
+	color: #fff;
+}
+
+.control:hover{
+	background-color: grey;
+}
+
+button:focus{
+	outline: 0;
+}
+
+.mixitup-control-active{
+	background-color: transparent;
+	border: 1px solid #444;
+	color: black !important;
+}
+
+/*map section*/
+
+#map{
+	height: 200px;
+	width: 250px;
+	background-color: blue;
+}
