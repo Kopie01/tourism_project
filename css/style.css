@@ -4,16 +4,32 @@ body{
 }
 
 #tablet{
-	width: 800px;
+	width: 1000px;
 	border: 1px solid black;
+	border-radius: 5px;
+	margin: 40px;
+}
+
+#mainbox{
+	margin: 40px;
+}
+
+#innerbox{
+	text-align: center;
 }
 
 /*mix it up style */
 
+#mainPage{
+	margin: 40px;
+	
+}
+
 /*property images*/
+
 .box{
-	height: 200px;
-	width: 250px;
+	height: 100px;
+	width: 150px;
 	display: inline-block;
 }
 
@@ -92,8 +108,54 @@ button:focus{
 
 /*map section*/
 
-#map{
-	height: 200px;
-	width: 250px;
-	background-color: blue;
+#mapSection{
+	width: 1000px;
+	height: 600px;
+	margin-top: 40px;
+	
+}
+
+#right-panel {
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+  font-size: 15px;
+}
+
+#right-panel select {
+  width: 100%;
+}
+
+#right-panel i {
+  font-size: 12px;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#map {
+  height: 100%;
+  float: left;
+  width: 70%;
+  height: 100%;
+}
+#right-panel {
+  margin: 20px;
+  border-width: 2px;
+  width: 20%;
+  height: 400px;
+  float: left;
+  text-align: left;
+  padding-top: 0;
+}
+#directions-panel {
+  margin-top: 10px;
+  background-color: #FFEE77;
+  padding: 10px;
+  overflow: scroll;
+  height: 174px;
 }

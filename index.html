@@ -4,6 +4,7 @@
 	<title>FindStay</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+
 	
 </head>
 <body>
@@ -28,8 +29,9 @@
  	</div>
 
  	<!-- mix it up code -->
- 	<div id="mixitup_section">
+ 	<div id="mainPage">
 
+ 	
  		Accommodation browsing <br>
  		You can browse accommodation based on location, number of guests or nights staying. <br>
  		This is to give you an idea of what you can book in each location
@@ -112,11 +114,46 @@
 		two three four five six seven eight nine ten eleventofifteen mix">wanaka House 1-4 guests</div>
 	
 
-	<div id="map_section">
- 		Google map section goes here
+		<div id="mapSection">
+ 		    
+		    <div id="right-panel">
+		    <div>
+		    <b>Start:</b>
+		    <select id="start">
+		      <option value="Nelson, New Zealand">Nelson</option>
+		      <option value="Kaikoura, New Zealand">Kaikoura</option>
+		      <option value="Christchurch, New Zealand">Christchurch</option>
+		      <option value="Queenstown, New Zealand">Queenstown</option>
+		       <option value="Wanaka, New Zealand">Wanaka</option>
+		    </select>
+		    <br>
+		    <b>Waypoints:</b> <br>
+		    <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
+		    <select multiple id="waypoints">
+		      <option value="Nelson, New Zealand">Nelson</option>
+		      <option value="Kaikoura, New Zealand">Kaikoura</option>
+		      <option value="Christchurch, New Zealand">Christchurch</option>
+		      <option value="Queenstown, New Zealand">Queenstown</option>
+		      <option value="Wanaka, New Zealand">Wanaka</option>
+		    </select>
+		    <br>
+		    <b>End:</b>
+		    <select id="end">
+		      <option value="Nelson, New Zealand">Nelson</option>
+		      <option value="Kaikoura, New Zealand">Kaikoura</option>
+		      <option value="Christchurch, New Zealand">Christchurch</option>
+		      <option value="Queenstown, New Zealand">Queenstown</option>
+		      <option value="Wanaka, New Zealand">Wanaka</option>
+		    </select>
+		    <br>
+		      <input type="submit" id="submit">
+		    </div>
+		    <div id="directions-panel"></div>
+		    </div>
+		    <div id="map"></div>
+		</div>
  		<!-- map section -->
-     <div id ="map"></div>
- 	</div>
+    
 
  	<div id="calculation">
  		Calculation section goes here
@@ -139,10 +176,19 @@
 
 
 
-<!-- mix it up javascript -->
+<!-- map link -->
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADZgE1UE8ig1Gbpa7ClvXVQQfRa7x9gkY&callback=initMap">
+    </script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript" src="js/mixitup.js"></script>
+<!-- JQuery UI -->
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<!-- mix it up javascript -->
+<script type="text/javascript" src="js/mixitup.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
+
+
 	
 </body>
 </html>
