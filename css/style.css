@@ -1,8 +1,12 @@
 /*full document style*/
 body{
-	font-family: sans-serif;
+	font-family:'Oxygen', sans-serif;
 }
 
+#tablet{
+	width: 800px;
+	border: 1px solid black;
+}
 
 /*mix it up style */
 
@@ -77,6 +81,7 @@ body{
 
 button:focus{
 	outline: 0;
+
 }
 
 .mixitup-control-active{
