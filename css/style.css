@@ -1,13 +1,15 @@
 /*full document style*/
 body{
 	font-family:'Oxygen', sans-serif;
+
 }
 
 #tablet{
-	width: 1000px;
+	width: 900px;
 	border: 1px solid black;
 	border-radius: 5px;
 	margin: 40px;
+	/*background-color: #326074;*/
 }
 
 #mainbox{
@@ -17,6 +19,9 @@ body{
 #innerbox{
 	text-align: center;
 }
+/*Validation section*/
+
+
 
 /*mix it up style */
 
@@ -57,14 +62,18 @@ body{
 .control{
 	position: relative;
 	display: inline-block;
-	width: 100px;
+	width: 110px;
 	height: 50px;
-	background-color: #444;
+	background-color: #ffffff;
 	cursor: pointer;
-	color: white;
+	color: grey;
 	border-radius: 10px;
 	border: none;
 	margin-bottom: 10px;
+	font-size: 16px;
+
+
+	border: solid 1px black;
 }
 
 .control[data-filter=".nelson"]{
@@ -101,7 +110,7 @@ button:focus{
 }
 
 .mixitup-control-active{
-	background-color: transparent;
+	background-color: #F8C113;
 	border: 1px solid #444;
 	color: black !important;
 }
@@ -109,9 +118,10 @@ button:focus{
 /*map section*/
 
 #mapSection{
-	width: 1000px;
+	width: 800px;
 	height: 600px;
 	margin-top: 40px;
+
 	
 }
 
@@ -158,4 +168,20 @@ html, body {
   padding: 10px;
   overflow: scroll;
   height: 174px;
+}
+
+/*calculation section*/
+
+.button{
+	padding: 15px;
+	font-size: 15px;
+	margin: 2px;
+	border-radius: 5px;
+	color:#ffffff;
+	background-color:#0091f9;
+	border-color: #365bc9;
+}
+
+.nelsonPanel{
+	display: none;
 }

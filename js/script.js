@@ -1,7 +1,30 @@
-$(document).ready(function(){
-	var mixer = mixitup('.container');
-    
-})
+var containerEl = document.querySelector('.container');
+
+            var mixer = mixitup(containerEl, {
+                controls: {
+                    toggleLogic: 'and'
+                }
+            });
+
+
+// Calculation
+
+// var guests = (prompt("How many guests in total?"));
+// var accom = (prompt("Which type of accommodation?"));
+// var nelsonN = (prompt("How many nights will you stay in Nelson?"));
+// var kaikouraN = (prompt("How many nights will you stay in Kaikoura?"));
+// var christchurchN = (prompt("How many nights will you stay in Christchurch?"));
+// var queenstownN = (prompt("How many nights will you stay in Queenstown?"));
+// var wanakaN = (prompt("How many nights will you stay in Wanaka?"));
+
+// alert(guests * (nelsonN + kaikouraN + christchurchN + queenstownN + wanakaN))
+
+// var hotel = 78.50
+// var motel = 45
+// var hostel = 30
+// var house = 60
+
+
 
 // Map
 
@@ -57,3 +80,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     }
   });
 }
+
+
+// calculation javascript
+
+

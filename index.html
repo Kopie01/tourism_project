@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>FindStay</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
@@ -18,11 +21,44 @@
 	 			<h2>Please enter your details so we can help you</h2>
 	 		</div>
 
-	 		<div id ="input">
-	 			<h3>Name</h3>
-	 			<h3>Email</h3>
-	 			<h3>Submit</h3>
-	 		</div>
+	 		<form id="LiveValidation" method="post" action="success.html">
+			  <div class="modal-body">
+
+			  	<div class="form-group">
+			  		<label for="firstName">First Name</label><br>
+			  		<input class="form-control" type="text" name="firstName" id="firstName">
+			  		<span class="input-errors"></span>
+			  	</div>
+
+		  		<div class="form-group">
+			  		<label for="lastname">Last Name</label><br>
+			  		<input class="form-control" type="text" name="lastname" id="lastname">
+			  		<span class="input-errors"></span>
+			  	</div>
+
+		  		<div class="form-group">
+			  		<label for="email">Email</label><br>
+			  		<input class="form-control" type="text" name="email" id="email">
+			  		<span class="input-errors"></span>
+			  	</div>
+
+				<div class="form-group">
+					<label for="password">Password</label><br>
+					<input type="password" class="form-control" name="password" id="password">
+					<span class="input-errors"></span>
+				</div>
+
+				<div class="form-group">
+					<label for="confirmPassword">Confirim Password</label><br>
+					<input type="password" class="form-control" name="confirmPassword" id="confirmPassword">
+					<span class="input-errors"></span>
+				</div>
+
+			  </div>
+			  <div class="modal-footer">
+				<button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
+			  </div>
+		  </form>
 
 	 	</div>
 
@@ -32,46 +68,44 @@
  	<div id="mainPage">
 
  	
- 		Accommodation browsing <br>
- 		You can browse accommodation based on location, number of guests or nights staying. <br>
- 		This is to give you an idea of what you can book in each location
- 		<br>
+ 		<h2>Step 1 - View Accommodation Options</h2> <br>
+ 		<h3>Please select from the following- </h3>
  		<br>
  		
  		<div class="controls">
- 		Accommodation based on location<br>
+ 		<h3>Which location would you like to view accommodation for?</h3>
 		<button type="button" class="control" data-filter="all">All</button>
-		<button type="button" class="control" data-filter=".nelson">Nelson</button>
-		<button type="button" class="control" data-filter=".kaikoura">Kaikoura</button>
-		<button type="button" class="control" data-filter=".christchurch">Christchurch</button>
-		<button type="button" class="control" data-filter=".queenstown">Queenstown</button>
-		<button type="button" class="control" data-filter=".wanaka">Wanaka</button><br>
+		<button type="button" class="control" data-toggle=".nelson">Nelson</button>
+		<button type="button" class="control" data-toggle=".kaikoura">Kaikoura</button>
+		<button type="button" class="control" data-toggle=".christchurch">Christchurch</button>
+		<button type="button" class="control" data-toggle=".queenstown">Queenstown</button>
+		<button type="button" class="control" data-toggle=".wanaka">Wanaka</button><br>
 
-		Accomodation based on number of nights stayed<br>
-		<button type="button" class="control" data-filter=".one"> 1</button>
-		<button type="button" class="control" data-filter=".two">2</button>
-		<button type="button" class="control" data-filter=".three">3</button>
-		<button type="button" class="control" data-filter=".four">4</button>
-		<button type="button" class="control" data-filter=".five">5</button>
-		<button type="button" class="control" data-filter=".six">6</button>
-		<button type="button" class="control" data-filter=".seven">7</button>
-		<button type="button" class="control" data-filter=".eight">8</button>
-		<button type="button" class="control" data-filter=".nine">9</button>
-		<button type="button" class="control" data-filter=".ten">10</button>
-		<button type="button" class="control" data-filter=".eleventofifteen">11-15</button>
+		<h3>How many nights do you intend to stay in this location?</h3>
+		<button type="button" class="control" data-toggle=".one"> 1</button>
+		<button type="button" class="control" data-toggle=".two">2</button>
+		<button type="button" class="control" data-toggle=".three">3</button>
+		<button type="button" class="control" data-toggle=".four">4</button>
+		<button type="button" class="control" data-toggle=".five">5</button>
+		<button type="button" class="control" data-toggle=".six">6</button>
+		<button type="button" class="control" data-toggle=".seven">7</button>
+		<button type="button" class="control" data-toggle=".eight">8</button>
+		<button type="button" class="control" data-toggle=".nine">9</button>
+		<button type="button" class="control" data-toggle=".ten">10</button>
+		<button type="button" class="control" data-toggle=".eleventofifteen">11-15</button>
 		
 		<br>
 
-		Accommodation based on number of guests<br>
-		<button type="button" class="control" data-filter=".oneppl">1</button>
-		<button type="button" class="control" data-filter=".twoppl">2</button>
-		<button type="button" class="control" data-filter=".threeppl">3</button>
-		<button type="button" class="control" data-filter=".fourppl">4</button>
-		<button type="button" class="control" data-filter=".fiveppl">5</button>
-		<button type="button" class="control" data-filter=".sixppl">6+</button<br>
+		<h3>How many guests will be staying in total?</h3>
+		<button type="button" class="control" data-toggle=".oneppl">1</button>
+		<button type="button" class="control" data-toggle=".twoppl">2</button>
+		<button type="button" class="control" data-toggle=".threeppl">3</button>
+		<button type="button" class="control" data-toggle=".fourppl">4</button>
+		<button type="button" class="control" data-toggle=".fiveppl">5</button>
+		<button type="button" class="control" data-toggle=".sixppl">6+</button<br>
 	</div>
 
-		These are your options for this location
+		<h3>These are your options for this location:</h3>
 	<div class="container">
 		<div class="box nelson oneppl twoppl mix one two three four five">Nelson Hotel 1-2 guests</div>
 		<div class="box nelson oneppl twoppl threeppl fourppl fiveppl sixppl 
@@ -113,6 +147,11 @@
 		<div class="box wanaka  oneppl twoppl threeppl fourppl 
 		two three four five six seven eight nine ten eleventofifteen mix">wanaka House 1-4 guests</div>
 	
+		<br>
+    	<br>
+
+
+		<h2>Step 2 - Plan your route</h2> 
 
 		<div id="mapSection">
  		    
@@ -154,20 +193,100 @@
 		</div>
  		<!-- map section -->
     
+    	<br>
+    	<br>
 
+ 		<h2>Step 3 - Calculate your total accommodation cost</h2> 
  	<div id="calculation">
- 		Calculation section goes here
+ 		
  
  		<form>
- 		<h3>How many guests in total?</h3>
- 		<h3>Which type of accommodation would you like?</h3>
+ 		<h3>Please confirm which locations you will be staying in:</h3>
+
+ 		<button type="button" id="birthday" class="button birthday">Nelson</button>
+
+		<button type="button" id="christmas" class="button">Kaikoura</button>
+
+		<button type="button" id="mother" class="button">Christchurch</button>
+
+		<button type="button" id="christmas" class="button">Queenstown</button>
+
+		<button type="button" id="mother" class="button">Wanaka</button>
+
+ 		<h3>How many guests in total on your trip?</h3>
+
+ 		<button type="button" id="birthday" class="button birthday">1</button>
+
+		<button type="button" id="christmas" class="button">2</button>
+
+		<button type="button" id="mother" class="button">3</button>
+
+		<button type="button" id="christmas" class="button">4</button>
+
+		<button type="button" id="mother" class="button">5</button>
+
+		<button type="button" id="mother" class="button">6</button>
+
+		<button type="button" id="mother" class="button">7</button>
+
+		<button type="button" id="mother" class="button">8</button>
+
+ 		
+
+		<div class="nelsonPanel">
+
+		<h3>Which type of accommodation would you like in Nelson?</h3>
+
+ 		<button type="button" id="birthday" class="button birthday">Hostel</button>
+
+		<button type="button" id="christmas" class="button">Hotel</button>
+
+		<button type="button" id="mother" class="button">Motel</button>
+
+		<button type="button" id="christmas" class="button">House</button>
+
+
  		<h3>How many nights are you staying in Nelson?</h3>
+
+	 		<button type="button" id="birthday" class="button birthday">1</button>
+
+			<button type="button" id="christmas" class="button">2</button>
+
+			<button type="button" id="mother" class="button">3</button>
+
+			<button type="button" id="christmas" class="button">4</button>
+
+			<button type="button" id="mother" class="button">5</button>
+
+			<button type="button" id="mother" class="button">6</button>
+
+			<button type="button" id="mother" class="button">7</button>
+
+			<button type="button" id="mother" class="button">8</button>
+
+			<button type="button" id="mother" class="button">9</button>
+
+			<button type="button" id="mother" class="button">10</button>
+
+			<button type="button" id="mother" class="button">11</button>
+
+			<button type="button" id="mother" class="button">12</button>
+
+			<button type="button" id="mother" class="button">13</button>
+
+			<button type="button" id="mother" class="button">14</button>
+
+			<button type="button" id="mother" class="button">15</button>
+
+		</div>
+
  		<h3>How many nights are you staying in Kaikoura?</h3>
  		<h3>How many nights are you staying in Christchurch?</h3>
  		<h3>How many nights are you staying in Queenstown?</h3>
  		<h3>How many nights are you staying in Wanaka?</h3>
  		<br>
- 		<h2>The total cost of your accommodation comes to: </h2>
+ 		<button id="submitButton" type="submit" class="btn">Submit</button>
+ 		<h3>The total cost of your accommodation comes to: </h3>
 
  		</form>
  	</div>
@@ -186,6 +305,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <!-- mix it up javascript -->
 <script type="text/javascript" src="js/mixitup.js"></script>
+<script type="text/javascript" src="js/validation.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 
 
