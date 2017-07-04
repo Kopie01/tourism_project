@@ -203,11 +203,12 @@
  		
 
  		<div id="wrap">
-        <form action="" id="guests" onsubmit="return false;">
+        <form action="" id="totalCost" onsubmit="return false;">
         <div>
             <div class="cont_order">
                <fieldset>
          
+         <h3>How many guests will be on your journey?</h3> 
                 <select id="number" name='number' onchange="calculateTotal()">
                 <option value="none">Select Number of guests</option>
                 <option value="one">1</option>
@@ -251,26 +252,27 @@
 
 		<div id="nelsonPanel">
  		
-			<div id = "guestsdiv">
+			
 				<h3>How many nights are you staying in Nelson?</h3>
-			    <select id="guests">
-			      <option value="Nelson, New Zealand">1</option>
-			      <option value="Kaikoura, New Zealand">2</option>
-			      <option value="Christchurch, New Zealand">3</option>
-			      <option value="Queenstown, New Zealand">4</option>
-			       <option value="Wanaka, New Zealand">5</option>
-			       <option value="Wanaka, New Zealand">6</option>
-			       <option value="Wanaka, New Zealand">7</option>
-			       <option value="Wanaka, New Zealand">8</option>
-			       <option value="Wanaka, New Zealand">9</option>
-			       <option value="Wanaka, New Zealand">10</option>
-			       <option value="Wanaka, New Zealand">11</option>
-			       <option value="Wanaka, New Zealand">12</option>
-			       <option value="Wanaka, New Zealand">13</option>
-			       <option value="Wanaka, New Zealand">14</option>
-			       <option value="Wanaka, New Zealand">15</option>
-			    </select>
-	 		</div>
+			     <select id="nelsonNights" name='nelsonNights' onchange="calculateTotal()">
+                <option value="none">Select number of nights</option>
+                <option value="one">1</option>
+                <option value="two">2</option>
+                <option value="three">3</option>
+                <option value="four">4</option>
+                <option value="five">5</option>
+                <option value="six">6</option>
+                <option value="seven">7</option>
+                <option value="eight">8</option>
+                <option value="nine">9</option>
+                <option value="ten">10</option>
+                <option value="eleven">11</option>
+                <option value="twelve">12</option>
+                <option value="thirteen"13</option>
+                <option value="fourteen">14</option>
+                <option value="fifteen">15</option>
+                
+               </select>
 
 		</div>
 
@@ -374,6 +376,8 @@
 
 		</div>
 
+		<br>
+		<br>
 
     <div id="totalPrice"></div>
 

@@ -129,6 +129,49 @@ var numberGuests= new Array();
  numberGuests["six"]=6;
  numberGuests["seven"]=7;
 
+ var typeVenue= new Array();
+ typeVenue["none"]=0;
+ typeVenue["Hostel"]=30;
+ typeVenue["Hotel"]=78.50;
+ typeVenue["Motel"]=45;
+ typeVenue["House"]=60;
+
+ var numberNights= new Array();
+ numberNights["none"]=0;
+ numberNights["one"]=1;
+ numberNights["two"]=2;
+ numberNights["three"]=3;
+ numberNights["four"]=4;
+ numberNights["five"]=5;
+ numberNights["six"]=6;
+ numberNights["seven"]=7;
+ numberNights["eight"]=8;
+ numberNights["nine"]=9;
+ numberNights["ten"]=10;
+ numberNights["eleven"]=11;
+ numberNights["twelve"]=12;
+ numberNights["thirteen"]=13;
+ numberNights["fourteen"]=14;
+ numberNights["fifteen"]=15;
+ 
+
+//This function finds the filling price based on the 
+//drop down selection
+function getNumberNightsNelson()
+{
+    var nightNumbers=0;
+    //reference to the form id="totalCost"
+    var theForm = document.forms["totalCost"];
+    //reference to the select id="nelsonNights"
+     var selectedNumber = theForm.elements["nelsonNights"];
+     
+    //set guest number equal to value user chose
+    //For example numberNights["five".value] would be equal to 5
+    nightNumbers = numberNights[selectedNumber.value];
+
+    //return nightNumbers
+    return nightNumbers;
+}
 
 //This function finds the filling price based on the 
 //drop down selection
@@ -136,7 +179,7 @@ function getGuestNumbers()
 {
     var guestNumbers=0;
     //reference to the form id="guests"
-    var theForm = document.forms["guests"];
+    var theForm = document.forms["totalCost"];
     //reference to the select id="number"
      var selectedNumber = theForm.elements["number"];
      
@@ -147,17 +190,34 @@ function getGuestNumbers()
     //return guestNumbers
     return guestNumbers;
 }
+
+//This function finds the filling price based on the 
+//drop down selection
+function getVenueType()
+{
+    var venueType=0;
+    //reference to the form id="venue"
+    var theForm = document.forms["totalCost"];
+    //reference to the select id="venue"
+     var selectedVenue = theForm.elements["venue"];
+     
+    //set guest number equal to value user chose
+    //For example numberGuests["five".value] would be equal to 5
+    venueType = typeVenue[selectedVenue.value];
+
+    //return venueType
+    return venueType;
+}
         
 function calculateTotal()
 {
-    //Here we get the total price by calling our function
-    //Each function returns a number so by calling them we add the values they return together
-    var accomPrice =  getGuestNumbers();
+    //get the total price by calling the functions
+    var accomPrice =  getGuestNumbers() * getVenueType() * (getNumberNightsNelson());
     
     //display the result
-    var divobj = document.getElementById('totalPrice');
-    divobj.style.display='block';
-    divobj.innerHTML = "Your total cost for accommodation is $"+accomPrice;
+    var total = document.getElementById('totalPrice');
+    total.style.display='block';
+    total.innerHTML = "Your total cost for accommodation is $"+accomPrice;
 
 }
 
