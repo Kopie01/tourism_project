@@ -12,6 +12,30 @@ var places = [
 		accommodation: null,
 		nights: null
 	},
+  {
+    name: "Kaikoura",
+    visit: false,
+    accommodation: null,
+    nights: null
+  },
+  {
+    name: "Christchurch",
+    visit: false,
+    accommodation: null,
+    nights: null
+  },
+  {
+    name: "Queenstown",
+    visit: false,
+    accommodation: null,
+    nights: null
+  },
+  {
+    name: "Wanaka",
+    visit: false,
+    accommodation: null,
+    nights: null
+  },
 
 
 
@@ -91,56 +115,108 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   });
 }
 
-
-
-var nelsonList = false;
-$(".buttonlo").click(function(){
-	var value = $(this).text().toLowerCase();
-	$("#"+value+"Panel").show();
-	$(this).css("background-color","#F8C113");
-	nelsonList = true;
-
-});
-
-
-
-	
-// })
 // // calculation javascript
-// var nelsonlist = true;
 
-// $("#nelsonbutton").click(function(){
-// 	if (nelsonlist === true) {
-// 		$(nelsonlist).show();
-// 		$("#nelsonbutton").css("background-color","#F8C113");
-// 		nelsonlist = false;}
-// 		else {
-// 			$(nelsonlist).hide();
-// 		}
+
+// Single code for buttons but unable to toggle back
+
+// $(".buttonlo").click(function(){
+//   if(nelsonList === false){
+// 	var value = $(this).text().toLowerCase();
+// 	$("#"+value+"Panel").show();
+// 	$(this).css("background-color","#F8C113");
+// 	nelsonList = true;
+// }else if (nelsonlist === true){
+//   var value = $(this).text().toLowerCase();
+//   $("#"+value+"Panel").hide();
+// }
+// });
+
 // })
 
+var nelsonflag = false;
+var kaikouraflag = false;
+var christchurchflag = false;
+var queenstownflag = false;
+var wanakaflag = false;
 
-	// var nelsonlist = document.getElementById("nelsonPanel");
-	// $(nelsonlist).show();
-	// $("#nelsonbutton").css("background-color","#F8C113");
-	// if (nelsonlist === "nelsonPanel"){
-	//  	$(nelsonlist).hide();
-	//  }
+$("#nelsonbutton").click(function(){
+  var nelsonlist = document.getElementById("nelsonPanel");
+	if (nelsonflag === false) {
+		$(nelsonlist).show();
+		$("#nelsonbutton").css("background-color","#F8C113");
+		nelsonflag = true;
+  }else{
+    $(nelsonlist).hide();
+    $("#nelsonbutton").css("background-color","#0091f9");
+    nelsonflag = false;
+  }
+})
 
-	// })
+$("#kaikourabutton").click(function(){
+  var kaikouralist = document.getElementById("kaikouraPanel");
+  if (kaikouraflag === false) {
+    $(kaikouralist).show();
+    $("#kaikourabutton").css("background-color","#F8C113");
+    kaikouraflag = true;
+  }else{
+    $(kaikouralist).hide();
+    $("#kaikourabutton").css("background-color","#0091f9");
+    kaikouraflag = false;
+  }
+})
+
+$("#christchurchbutton").click(function(){
+  var christchurchlist = document.getElementById("christchurchPanel");
+  if (christchurchflag === false) {
+    $(christchurchlist).show();
+    $("#christchurchbutton").css("background-color","#F8C113");
+    christchurchflag = true;
+  }else{
+    $(christchurchlist).hide();
+    $("#christchurchbutton").css("background-color","#0091f9");
+    christchurchflag = false;
+  }
+})
+
+$("#queenstownbutton").click(function(){
+  var queenstownlist = document.getElementById("queenstownPanel");
+  if (queenstownflag === false) {
+    $(queenstownlist).show();
+    $("#queenstownbutton").css("background-color","#F8C113");
+    queenstownflag = true;
+  }else{
+    $(queenstownlist).hide();
+    $("#queenstownbutton").css("background-color","#0091f9");
+    queenstownflag = false;
+  }
+})
+
+$("#wanakabutton").click(function(){
+  var wanakalist = document.getElementById("wanakaPanel");
+  if (wanakaflag === false) {
+    $(wanakalist).show();
+    $("#wanakabutton").css("background-color","#F8C113");
+    wanakaflag = true;
+  }else{
+    $(wanakalist).hide();
+    $("#wanakabutton").css("background-color","#0091f9");
+    wanakaflag = false;
+  }
+})
 
 
-// $("#kaikourabutton").click(function(){
-// 	var kaikouralist = document.getElementById("kaikouraPanel");
-// 	$(kaikouralist).show();
-// 	$("#kaikourabutton").css("background-color","#F8C113");
-	
-// 	})
 
-// $("#christchurchbutton").click(function(){
-// 	var christchurchlist = document.getElementById("christchurchPanel");
-// 	$(christchurchlist).show();
-// 	$("#christchurchbutton").css("background-color","#F8C113");
-// 	console.log("hello");
-	
-// 	})
+
+
+
+
+
+
+
+
+
+
+
+
+
