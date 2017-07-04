@@ -102,6 +102,18 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
 // // calculation javascript
 
+
+
+var numberGuests= new Array();
+ numberGuests["none"]=0;
+ numberGuests["one"]=1;
+ numberGuests["two"]=2;
+ numberGuests["three"]=3;
+ numberGuests["four"]=4;
+ numberGuests["five"]=5;
+ numberGuests["six"]=6;
+ numberGuests["seven"]=7;
+
  var typeVenue= new Array();
  typeVenue["none"]=0;
  typeVenue["Hostel"]=30;
@@ -109,27 +121,25 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
  typeVenue["Motel"]=45;
  typeVenue["House"]=60;
 
-
- var numberN= new Array();
- numberN["none"]=0;
- numberN["one"]=1;
- numberN["two"]=2;
- numberN["three"]=3;
- numberN["four"]=4;
- numberN["five"]=5;
- numberN["six"]=6;
- numberN["seven"]=7;
- numberN["eight"]=8;
- numberN["nine"]=9;
- numberN["ten"]=10;
- numberN["eleven"]=11;
- numberN["twelve"]=12;
- numberN["thirteen"]=13;
- numberN["fourteen"]=14;
- numberN["fifteen"]=15;
+ var numberNights= new Array();
+ numberNights["none"]=0;
+ numberNights["one"]=1;
+ numberNights["two"]=2;
+ numberNights["three"]=3;
+ numberNights["four"]=4;
+ numberNights["five"]=5;
+ numberNights["six"]=6;
+ numberNights["seven"]=7;
+ numberNights["eight"]=8;
+ numberNights["nine"]=9;
+ numberNights["ten"]=10;
+ numberNights["eleven"]=11;
+ numberNights["twelve"]=12;
+ numberNights["thirteen"]=13;
+ numberNights["fourteen"]=14;
+ numberNights["fifteen"]=15;
  
-//This function finds the number of nights based on the 
-//drop down selection
+
 function getNumber(name)
 {
     var nightNumbers=0;
@@ -139,12 +149,51 @@ function getNumber(name)
      var selectedNumber = theForm.elements[name + "Nights"];
      
     //set guest number equal to value user chose
-    //For example numberN["five".value] would be equal to 5
-    nightNumbers = numberN[selectedNumber.value];
+    //For example numberNights["five".value] would be equal to 5
+    nightNumbers = numberNights[selectedNumber.value];
 
     //return nightNumbers
     return nightNumbers;
 }
+
+//This function finds the number of nights based on the 
+//drop down selection
+// function getNumberNightsNelson()
+// {
+//     var nightNumbers=0;
+//     //reference to the form id="totalCost"
+//     var theForm = document.forms["totalCost"];
+//     //reference to the select id="nelsonNights"
+//      var selectedNumber = theForm.elements["nelsonNights"];
+     
+//     //set guest number equal to value user chose
+//     //For example numberNights["five".value] would be equal to 5
+//     nightNumbers = numberNights[selectedNumber.value];
+
+//     //return nightNumbers
+//     return nightNumbers;
+// }
+
+// //This function finds the number of nights based on the 
+// //drop down selection
+// function getNumberNightsKaikoura()
+// {
+//     var nightNumbers=0;
+//     //reference to the form id="totalCost"
+//     var theForm = document.forms["totalCost"];
+//     //reference to the select id="nelsonNights"
+//      var selectedNumber = theForm.elements["nelsonNights"];
+     
+//     //set guest number equal to value user chose
+//     //For example numberNights["five".value] would be equal to 5
+//     nightNumbers = numberNights[selectedNumber.value];
+
+//     //return nightNumbers
+//     return nightNumbers;
+// }
+
+
+
 
 
 //This function finds the number of guests based on the 
@@ -158,8 +207,8 @@ function getGuestNumbers()
      var selectedNumber = theForm.elements["number"];
      
     //set guest number equal to value user chose
-    //For example numberN["five".value] would be equal to 5
-    guestNumbers = numberN[selectedNumber.value];
+    //For example numberGuests["five".value] would be equal to 5
+    guestNumbers = numberGuests[selectedNumber.value];
 
     //return guestNumbers
     return guestNumbers;
