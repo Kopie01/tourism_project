@@ -5,7 +5,17 @@ var containerEl = document.querySelector('.container');
                     toggleLogic: 'and'
                 }
             });
+var places = [
+	{
+		name: "Nelson",
+		visit: false,
+		accommodation: null,
+		nights: null
+	},
 
+
+
+]
 
 // Calculation
 
@@ -82,6 +92,61 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 }
 
 
-// calculation javascript
+
+var nelsonList = false;
+$(".buttonlo").click(function(){
+	var value = $(this).text().toLowerCase();
+	$("#"+value+"Panel").show();
+	$(this).css("background-color","#F8C113");
+	nelsonList = true;
+
+});
+
+$(".buttonlo").click(function(){
+	var value = $(this).text().toLowerCase();
+	$("#"+value+"Panel").show();
+	$(this).css("background-color","#F8C113");
+	nelsonList = true;
+
+});
+
+	
+// })
+// // calculation javascript
+// var nelsonlist = true;
+
+// $("#nelsonbutton").click(function(){
+// 	if (nelsonlist === true) {
+// 		$(nelsonlist).show();
+// 		$("#nelsonbutton").css("background-color","#F8C113");
+// 		nelsonlist = false;}
+// 		else {
+// 			$(nelsonlist).hide();
+// 		}
+// })
 
 
+	// var nelsonlist = document.getElementById("nelsonPanel");
+	// $(nelsonlist).show();
+	// $("#nelsonbutton").css("background-color","#F8C113");
+	// if (nelsonlist === "nelsonPanel"){
+	//  	$(nelsonlist).hide();
+	//  }
+
+	// })
+
+
+// $("#kaikourabutton").click(function(){
+// 	var kaikouralist = document.getElementById("kaikouraPanel");
+// 	$(kaikouralist).show();
+// 	$("#kaikourabutton").css("background-color","#F8C113");
+	
+// 	})
+
+// $("#christchurchbutton").click(function(){
+// 	var christchurchlist = document.getElementById("christchurchPanel");
+// 	$(christchurchlist).show();
+// 	$("#christchurchbutton").css("background-color","#F8C113");
+// 	console.log("hello");
+	
+// 	})
