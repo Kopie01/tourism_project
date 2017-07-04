@@ -200,38 +200,39 @@
  	<div id="calculation">
  		
  
- 		<form>
+ 		
+
+ 		<div id="wrap">
+        <form action="" id="guests" onsubmit="return false;">
+        <div>
+            <div class="cont_order">
+               <fieldset>
+         
+                <select id="number" name='number' onchange="calculateTotal()">
+                <option value="none">Select Number of guests</option>
+                <option value="one">1</option>
+                <option value="two">2</option>
+                <option value="three">3</option>
+                <option value="four">4</option>
+                <option value="five">5</option>
+                <option value="six">6</option>
+                <option value="seven">7</option>
+                
+               </select>
+                <br/>
 
 
- 		<div id = "guestsdiv">
- 		<span class="left"><h3>How many guests in total on your trip?</h3></span>
-		    <select id="guests">
-		      <option value="Nelson, New Zealand">1</option>
-		      <option value="Kaikoura, New Zealand">2</option>
-		      <option value="Christchurch, New Zealand">3</option>
-		      <option value="Queenstown, New Zealand">4</option>
-		       <option value="Wanaka, New Zealand">5</option>
-		       <option value="Wanaka, New Zealand">6</option>
-		       <option value="Wanaka, New Zealand">7</option>
-		       <option value="Wanaka, New Zealand">8</option>
-		    </select>
+		<h3>Which type of accommodation would you like on your journey?</h3>     
+		    
 
-		<div>    
-
-
-		<h3>Which type of accommodation would you like on your journey?</h3>
-		<select id="guests">
-		      <option value="Nelson, New Zealand">Hostel</option>
-		      <option value="Kaikoura, New Zealand">Hotel</option>
-		      <option value="Christchurch, New Zealand">Motel</option>
-		      <option value="Queenstown, New Zealand">House</option>
-		     
-		    </select>
-
-		
-
-		
-
+		    <select id="venue" name='venue' onchange="calculateTotal()">
+                <option value="none">Select Accomodation Option</option>
+                <option value="Hostel">Hostel</option>
+		      <option value="Hotel">Hotel</option>
+		      <option value="Motel">Motel</option>
+		      <option value="House">House</option>
+                
+               </select>
  		
 
  		<h3>Please confirm which locations you will be staying in:</h3>
@@ -245,10 +246,6 @@
 		<button type="button" id="queenstownbutton" class="buttonlo">Queenstown</button>
 
 		<button type="button" id="wanakabutton" class="buttonlo">Wanaka</button>
-
- 		
-
- 		
 
 		
 
@@ -378,15 +375,20 @@
 		</div>
 
 
+    <div id="totalPrice"></div>
 
 
 
-<br>
- 		<br>
-<button id="submitButton" type="submit" class="btn">Submit</button>
- 		<h3>The total cost of your accommodation comes to: </h3>
 
 
+ 		</fieldset>
+
+ 		   </div>
+            
+        	
+       </form>
+	</div><!--End of wrap-->
+</form>
 
 
 <!-- map link -->

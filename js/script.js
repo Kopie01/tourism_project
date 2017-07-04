@@ -5,41 +5,41 @@ var containerEl = document.querySelector('.container');
                     toggleLogic: 'and'
                 }
             });
-var places = [
-	{
-		name: "Nelson",
-		visit: false,
-		accommodation: null,
-		nights: null
-	},
-  {
-    name: "Kaikoura",
-    visit: false,
-    accommodation: null,
-    nights: null
-  },
-  {
-    name: "Christchurch",
-    visit: false,
-    accommodation: null,
-    nights: null
-  },
-  {
-    name: "Queenstown",
-    visit: false,
-    accommodation: null,
-    nights: null
-  },
-  {
-    name: "Wanaka",
-    visit: false,
-    accommodation: null,
-    nights: null
-  },
+// var places = [
+// 	{
+// 		name: "Nelson",
+// 		visit: false,
+// 		accommodation: null,
+// 		nights: null
+// 	},
+//   {
+//     name: "Kaikoura",
+//     visit: false,
+//     accommodation: null,
+//     nights: null
+//   },
+//   {
+//     name: "Christchurch",
+//     visit: false,
+//     accommodation: null,
+//     nights: null
+//   },
+//   {
+//     name: "Queenstown",
+//     visit: false,
+//     accommodation: null,
+//     nights: null
+//   },
+//   {
+//     name: "Wanaka",
+//     visit: false,
+//     accommodation: null,
+//     nights: null
+//   },
 
 
 
-]
+// ]
 
 // Calculation
 
@@ -116,6 +116,53 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 }
 
 // // calculation javascript
+
+
+
+var numberGuests= new Array();
+ numberGuests["none"]=0;
+ numberGuests["one"]=1;
+ numberGuests["two"]=2;
+ numberGuests["three"]=3;
+ numberGuests["four"]=4;
+ numberGuests["five"]=5;
+ numberGuests["six"]=6;
+ numberGuests["seven"]=7;
+
+
+//This function finds the filling price based on the 
+//drop down selection
+function getGuestNumbers()
+{
+    var guestNumbers=0;
+    //reference to the form id="guests"
+    var theForm = document.forms["guests"];
+    //reference to the select id="number"
+     var selectedNumber = theForm.elements["number"];
+     
+    //set guest number equal to value user chose
+    //For example numberGuests["five".value] would be equal to 5
+    guestNumbers = numberGuests[selectedNumber.value];
+
+    //return guestNumbers
+    return guestNumbers;
+}
+        
+function calculateTotal()
+{
+    //Here we get the total price by calling our function
+    //Each function returns a number so by calling them we add the values they return together
+    var accomPrice =  getGuestNumbers();
+    
+    //display the result
+    var divobj = document.getElementById('totalPrice');
+    divobj.style.display='block';
+    divobj.innerHTML = "Your total cost for accommodation is $"+accomPrice;
+
+}
+
+
+
 
 
 // Single code for buttons but unable to toggle back
