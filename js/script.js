@@ -102,13 +102,7 @@ $(".buttonlo").click(function(){
 
 });
 
-$(".buttonlo").click(function(){
-	var value = $(this).text().toLowerCase();
-	$("#"+value+"Panel").show();
-	$(this).css("background-color","#F8C113");
-	nelsonList = true;
 
-});
 
 	
 // })
