@@ -5,42 +5,6 @@ var containerEl = document.querySelector('.container');
                     toggleLogic: 'and'
                 }
             });
-// var places = [
-//  {
-//    name: "Nelson",
-//    visit: false,
-//    accommodation: null,
-//    nights: null
-//  },
-//   {
-//     name: "Kaikoura",
-//     visit: false,
-//     accommodation: null,
-//     nights: null
-//   },
-//   {
-//     name: "Christchurch",
-//     visit: false,
-//     accommodation: null,
-//     nights: null
-//   },
-//   {
-//     name: "Queenstown",
-//     visit: false,
-//     accommodation: null,
-//     nights: null
-//   },
-//   {
-//     name: "Wanaka",
-//     visit: false,
-//     accommodation: null,
-//     nights: null
-//   },
-
-
-
-// ]
-
 
 
 
@@ -196,30 +160,30 @@ function calculateTotal()
 }
 
 
+function showPanel(option){
+  console.log(option.value);
+
+  var s = option.value;
+  var n = s.indexOf(",");
+  s = s.substring(0, n != -1 ? n : s.length);
+  s = s.toLowerCase();
+  // if (nelsonflag === false) {
+  // selectPlace.show();
+  $("#"+s+"Panel").show();
+    
+}
 
 
 
-// Single code for buttons but unable to toggle back
 
-// $(".buttonlo").click(function(){
-//   if(nelsonList === false){
-//  var value = $(this).text().toLowerCase();
-//  $("#"+value+"Panel").show();
-//  $(this).css("background-color","#F8C113");
-//  nelsonList = true;
-// }else if (nelsonlist === true){
-//   var value = $(this).text().toLowerCase();
-//   $("#"+value+"Panel").hide();
-// }
-// });
 
-// })
 
 var nelsonflag = false;
 var kaikouraflag = false;
 var christchurchflag = false;
 var queenstownflag = false;
 var wanakaflag = false;
+
 
 $("#nelsonbutton").click(function(){
   var nelsonlist = document.getElementById("nelsonPanel");

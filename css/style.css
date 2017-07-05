@@ -1,33 +1,65 @@
 /*full document style*/
 body{
-	font-family:'Oxygen', sans-serif;
-
+	font-family:'Open Sans', sans-serif;
+	font-weight: regular;
+	
 }
 
-#tablet{
+h1{
+ font-size: 3.1em;
+}
+
+#tablettop{
 	width: 900px;
-	border: 1px solid black;
+	border: 1px solid ;
 	border-radius: 5px;
 	margin: 40px;
-	/*background-color: #326074;*/
+	background-color: #326074;
+	background-image: url("../images/Mountcookresize.jpg");
+	background-repeat: no-repeat;
+	padding: 0px;
+
 }
 
 #mainbox{
 	margin: 40px;
+	color: #ffffff;
+	margin-top: 200px;
+	margin-bottom: 250px;
+
 }
+.input-errors{
+  color:#F8C113;
+  list-style: none;
+}
+
 
 #innerbox{
 	text-align: center;
 }
 /*Validation section*/
 
+.form-control{
+	border-radius: 5px;
+	height: 40px;
+	width: 200px;
+}
 
+label{
+	font-size: 20px;
+}
 
 /*mix it up style */
 
 #mainPage{
 	margin: 40px;
+	color: #ffffff;
+	/*display: none;*/
 	
+}
+
+li{
+	list-style: none;
 }
 
 /*property images*/
@@ -67,13 +99,13 @@ body{
 	background-color: #ffffff;
 	cursor: pointer;
 	color: grey;
-	border-radius: 10px;
+	border-radius: 5px;
 	border: none;
 	margin-bottom: 10px;
 	font-size: 16px;
 
 
-	border: solid 1px black;
+	
 }
 
 .control[data-filter=".nelson"]{
@@ -101,7 +133,7 @@ body{
 }
 
 .control:hover{
-	background-color: grey;
+	background-color: #f2d060;
 }
 
 button:focus{
@@ -111,7 +143,7 @@ button:focus{
 
 .mixitup-control-active{
 	background-color: #F8C113;
-	border: 1px solid #444;
+	
 	color: black !important;
 }
 
