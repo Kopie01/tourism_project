@@ -21,6 +21,10 @@ h1{
 
 }
 
+.image2{
+	background-image: url("../images/hotel1.jpg");
+
+}
 #mainbox{
 	margin: 40px;
 	color: #ffffff;
@@ -65,30 +69,31 @@ li{
 /*property images*/
 
 .box{
-	height: 100px;
-	width: 150px;
+	height: 250px;
+	width: 250px;
 	display: inline-block;
+	border-radius: 5px;
+	margin:5px;
+
 }
 
-.nelson{
-	background-color: #91e6c7;
+.box img{
+	width: 100%;
+	border-radius: 5px 5px 0px 0px;;
+
 }
 
-.christchurch{
-	background-color: #d595aa;
+.description{
+	background-color: white;
+	width:100%;
+
+}
+.nelson, .christchurch, .kaikoura, .queenstown, .wanaka{
+	background-color: white;
+	color:black;
 }
 
-.kaikoura{
-	background-color: #5ecdde;
-}
 
-.queenstown{
-	background-color: #7a339b;
-}
-
-.wanaka{
-	background-color: #f7b50e;
-}
 
 /*control buttons*/
 .control{
@@ -240,4 +245,10 @@ html, body {
 }
 
 
-
+#submitButton{
+	width:200px;
+	height:50px;
+	background-color: #F8C113;
+	border-radius: 5px;
+	font-size: 18px;
+}

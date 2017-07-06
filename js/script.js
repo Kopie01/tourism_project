@@ -160,20 +160,40 @@ function calculateTotal()
 }
 
 
-function showPanel(option){
-  console.log(option.value);
 
-  var s = option.value;
-  var n = s.indexOf(",");
-  s = s.substring(0, n != -1 ? n : s.length);
-  s = s.toLowerCase();
-  // if (nelsonflag === false) {
-  // selectPlace.show();
-  $("#"+s+"Panel").show();
+function storePanel(option){
+  console.log(option.value);
+  var places = [];
+  var placeName = option.value;
+  var n = placeName.indexOf(",");
+  placeName = placeName.substring(0, n != -1 ? n : placeName.length);
+  placeName = placeName.toLowerCase();
+  $("#"+placeName+"Panel").show();
+  places.push("placeName");
+
     
 }
 
+// Code to link map selections to panel
+// var places = [];
 
+// places[3] = "nelson";
+
+
+$("#submit").click(function(){
+  // $("#"+placeName+"Panel").show();
+  storePanel(placeName);
+  console.log(placeNelson);
+
+  
+})
+
+// function nelsonAdd(){
+  
+//   var element = document.getElementsByClassName("nelsonclass");
+//   var nelsonArray = element[0].className
+//   places[0] = "nelsonclass";
+// }
 
 
 

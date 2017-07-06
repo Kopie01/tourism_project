@@ -178,3 +178,15 @@ $(document).ready(function(){
 
 
 });
+	
+	var ValidLastName = false;
+	var ValidEmail = false;
+	var ValidPassword = false;
+	var ValidConfirmPassword = false;
+
+$("#submitButton").click(function(){
+	console.log("this works");
+  if (ValidFirstName === true) {
+    console.log("true");
+  }
+})
