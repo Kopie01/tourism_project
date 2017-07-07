@@ -206,6 +206,7 @@ html, body {
   padding: 10px;
   overflow: scroll;
   height: 174px;
+  color: black;
 }
 
 /*calculation section*/
@@ -252,3 +253,5 @@ html, body {
 	border-radius: 5px;
 	font-size: 18px;
 }
+
+

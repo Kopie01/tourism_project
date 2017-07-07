@@ -160,33 +160,89 @@ function calculateTotal()
 }
 
 
+// Code to link places to map
+var places = [];
 
-function storePanel(option){
-  console.log(option.value);
-  var places = [];
-  var placeName = option.value;
-  var n = placeName.indexOf(",");
-  placeName = placeName.substring(0, n != -1 ? n : placeName.length);
-  placeName = placeName.toLowerCase();
-  $("#"+placeName+"Panel").show();
-  places.push("placeName");
+// function storePanel(option){
+//   console.log(option.value);
+  
+//   var placeName = option.value;
+//   var name = placeName.indexOf(",");
+//   placeName = placeName.substring(0, name != -1 ? name : placeName.length);
+//   placeName = placeName.toLowerCase();
+//   places.push(placeName);
+//   console.log(places)
 
+//   // for (var i = 0; i < places[i].length; i++) {
     
-}
+//   // }if (placeName === placeName){
+//   //   $(this).hide();
+//   //   console.log("here");
+//   // }
 
-// Code to link map selections to panel
-// var places = [];
+// }
+$("#start").change(function(){
+  var name = $(this).val();
+  console.log(name);
+  // if(name === name){
+  //   $(name).hide();
+  // }
+  // var wayPointsDouble = [];
+  // var waypoints = $("#waypoints").val();
+  // for (var i = 0; i < waypoints.length; i++) {
+  //   wayPointsDouble.push(waypoints[i]);
+  // }
 
-// places[3] = "nelson";
+  // console.log(wayPointsDouble);
+ // var doubleNames = []
+ // doubleNames.push(name);
+ // console.log(doubleNames);
+
+})
+
 
 
 $("#submit").click(function(){
-  // $("#"+placeName+"Panel").show();
-  storePanel(placeName);
-  console.log(placeNelson);
+  places = [];
 
+  var start = $("#start").val();
+  places.push(start);
+  var end = $("#end").val();
+  places.push(end);
+
+  var waypoints = $("#waypoints").val();
+  for (var i = 0; i < waypoints.length; i++) {
+    places.push(waypoints[i]);
+  }
+  console.log(places);
+  var newPlaces = [];
+
+  for (var i = 0; i< places.length; i++){
+
+    console.log();
+
+    var name = places[i].split(",")[0];
+    name = name.toLowerCase();
+    newPlaces.push(name);
+    console.log(places)
+  }
+
+  places = newPlaces;
+  console.log(places);
+
+  for (var i = 0; i< places.length; i++) {
+  
+    $("#"+places[i]+"Panel").show();
+  
+}
   
 })
+
+// for (var i = 0; i < places[i].length; i++) {
+    
+//   }if (placeName === placeName){
+//     $(this).hide();
+//   }
 
 // function nelsonAdd(){
   

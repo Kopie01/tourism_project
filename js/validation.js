@@ -1,15 +1,17 @@
-$(document).ready(function(){
-
 	var ValidFirstName = false;
 	var ValidLastName = false;
 	var ValidEmail = false;
 	var ValidPassword = false;
 	var ValidConfirmPassword = false;
 
-	//When the submit button is pressed
-	$("#submitButton").click(function(event){
-		event.preventDefault();
-	});
+$(document).ready(function(){
+
+
+
+	// //When the submit button is pressed
+	// $("#submitButton").click(function(event){
+	// 	event.preventDefault();
+	// });
 
 	//Blur is when you have left an element
 	$("#firstName").blur(function(){
@@ -56,8 +58,9 @@ $(document).ready(function(){
 			firstNameErrors.text("This field cannot be more than 20 characters").removeClass("success").addClass("error");
 			return;
 		}
-		firstNameErrors.text("There are no errors").removeClass("error").addClass("success");
 		ValidFirstName = true;
+		firstNameErrors.text("There are no errors").removeClass("error").addClass("success");
+		
 	});
 
 
@@ -185,6 +188,8 @@ $(document).ready(function(){
 	var ValidConfirmPassword = false;
 
 $("#submitButton").click(function(){
+			event.preventDefault();
+
 	console.log("this works");
   if (ValidFirstName === true) {
     console.log("true");
