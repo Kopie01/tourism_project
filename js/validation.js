@@ -182,16 +182,22 @@ $(document).ready(function(){
 
 });
 	
-	var ValidLastName = false;
-	var ValidEmail = false;
-	var ValidPassword = false;
-	var ValidConfirmPassword = false;
+	
 
 $("#submitButton").click(function(){
 			event.preventDefault();
 
+var mainBox = document.getElementById("mainbox");
+var mainImage = $("#tablettop").css("background-image");
+console.log(mainImage);
+
 	console.log("this works");
   if (ValidFirstName === true) {
     console.log("true");
+    $("body").css("overflow", "auto");
+    $(mainBox).hide();
+    // $(mainImage).hide();
+    
+    
   }
 })

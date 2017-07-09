@@ -179,11 +179,42 @@ var places = [];
 //   //   $(this).hide();
 //   //   console.log("here");
 //   // }
+var multiNames = [];
+var startName;
+var endName;
 
-// }
 $("#start").change(function(){
-  var name = $(this).val();
-  console.log(name);
+
+  $("#waypoints option, #end option").each(function(){
+    if($(this).attr("value") === $("#start").val() || $(this).attr("value") === $("#end").val()){
+      $(this).removeAttr("selected").hide();
+    }
+    else $(this).show();
+  });
+
+  
+
+  
+
+// multiNames = $("#waypoints").val();
+// console.log(multiNames);
+//   for (var i = 0; i < waypoints.length; i++) {
+//     multiNames.push(waypoints[i]);
+//     console.log(multiNames);
+
+//   }
+
+
+  // for (var i = 0; i< multiNames.length; i++){
+
+  //   console.log();
+  //   var newMulti = [];
+  //   // var multiNames = multiNames[i].split(",")[0];
+  //   multiNames = multiNames.toLowerCase();
+  //   newMulti.push(multiNames);
+  //   console.log(newMulti)
+  })
+
   // if(name === name){
   //   $(name).hide();
   // }
@@ -197,8 +228,6 @@ $("#start").change(function(){
  // var doubleNames = []
  // doubleNames.push(name);
  // console.log(doubleNames);
-
-})
 
 
 
