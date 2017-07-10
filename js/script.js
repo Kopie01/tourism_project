@@ -186,13 +186,26 @@ var endName;
 $("#start").change(function(){
 
   $("#waypoints option, #end option").each(function(){
-    if($(this).attr("value") === $("#start").val() || $(this).attr("value") === $("#end").val()){
+    if($(this).attr("value") === $("#start, #end").val()){
       $(this).removeAttr("selected").hide();
     }
     else $(this).show();
   });
 
+
   
+});
+
+$("#waypoints").change(function(){
+  var selectedOptions = $(this).val();
+
+
+  $(selectedOptions).each(function(id, value){
+    $("#end option[value=\""+ value +"\"").removeAttr("selected").hide();
+  });
+  
+});
+
 
   
 
@@ -213,7 +226,6 @@ $("#start").change(function(){
   //   multiNames = multiNames.toLowerCase();
   //   newMulti.push(multiNames);
   //   console.log(newMulti)
-  })
 
   // if(name === name){
   //   $(name).hide();
