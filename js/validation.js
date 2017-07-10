@@ -190,18 +190,25 @@ $("#submitButton").click(function(){
 			event.preventDefault();
 
 var mainBox = document.getElementById("mainbox");
-var mainImage = $("#tablettop").css("background-image");
-console.log(mainImage);
+// var mainPage = document.getElementById("mainPage");
+// var mapSection = document.getElementById("mapSection");
+// var mainImage = $("#tablettop").css("background-image");
+// console.log(mainImage);
 
 	console.log("this works");
-  if (ValidFirstName === true && ValidLastName === true && ValidEmail === true 
+  if (ValidFirstName === true 
+  	&& ValidLastName === true 
+  	&& ValidEmail === true 
   	&& ValidPassword === true 
   	&& ValidConfirmPassword === true 
   	){
     console.log("true");
     $("body").css("overflow", "auto");
     $(mainBox).hide();
-    // $(mainImage).hide();
+    // $(mainPage).show();
+    // $(mapSection).show();
+    
+
     
     
   }
