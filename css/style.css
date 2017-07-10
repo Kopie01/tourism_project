@@ -2,7 +2,7 @@
 body{
 	font-family:'Open Sans', sans-serif;
 	font-weight: regular;
-	overflow: hidden;
+	/*overflow: hidden;*/
 
 	
 }
@@ -17,22 +17,12 @@ h1{
 	border-radius: 5px;
 	margin: 40px;
 	background-color: #326074;
-	background-image: url("../images/Mountcookresize.jpg");
-	background-repeat: no-repeat;
-	padding: 0px;
-
-
+	
 }
 
-
-.image2{
-	background-image: url("../images/hotel1.jpg");
-
-}
 #mainbox{
 	margin: 40px;
 	color: #ffffff;
-	margin-top: 200px;
 	margin-bottom: 250px;
 	
 
@@ -45,6 +35,10 @@ h1{
 
 #innerbox{
 	text-align: center;
+	background-image: url("../images/Mountcookresize.jpg");
+	padding: 90px;
+	border-radius: 5px;
+
 }
 /*Validation section*/
 
