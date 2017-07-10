@@ -68,6 +68,7 @@ $(document).ready(function(){
 	//Validate Email
 	$("#email")
 		.blur(function(){
+
 			if($(this).val().length === 0){
 				$(this).parent().find('span.input-errors').empty();
 				$(this).parent().find('span.input-errors').append("<ul class='error'></ul>");
@@ -78,6 +79,7 @@ $(document).ready(function(){
 		}).blur(function(){
 
 		}).keyup(function(){
+			console.log("hi");
 			if($(this).val().length !== 0 ){
 				$(this).parent().find('span.input-errors .required').remove();
 			} else if( ($(this).val().length === 0) && ( $("li.required").length === 0) ) {
