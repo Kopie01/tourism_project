@@ -27,11 +27,11 @@ $(document).ready(function(){
 		// 	firstNameErrors.text("This field requires at least 5 characters").removeClass("success").addClass("error");
 		// 	return;
 		// }
-		//Max Length 20
-		// if($(this).val().length > 20){
-		// 	firstNameErrors.text("This field cannot be more than 20 characters").removeClass("success").addClass("error");
-		// 	return;
-		// }
+		// Max Length 20
+		if($(this).val().length > 20){
+			firstNameErrors.text("This field cannot be more than 20 characters").removeClass("success").addClass("error");
+			return;
+		}
 		firstNameErrors.text("There are no errors").removeClass("error").addClass("success");
 		ValidFirstName = true;
 	});
@@ -41,11 +41,11 @@ $(document).ready(function(){
 
 	//Blur is when you have left an element
 	$("#lastname").blur(function(){
-		var firstNameErrors = $(this).parent().find('span.input-errors');
-		firstNameErrors.empty();
+		var lastNameErrors = $(this).parent().find('span.input-errors');
+		lastNameErrors.empty();
 		//This element is required
 		if($(this).val().length === 0){
-			firstNameErrors.text("This field is required").removeClass("success").addClass("error");
+			lastNameErrors.text("This is required").removeClass("success").addClass("error");
 			return;
 		}
 		// //Min Length 5
@@ -55,11 +55,11 @@ $(document).ready(function(){
 		// }
 		//Max Length 20
 		if($(this).val().length > 20){
-			firstNameErrors.text("This field cannot be more than 20 characters").removeClass("success").addClass("error");
+			lastNameErrors.text("This field cannot be more than 20 characters").removeClass("success").addClass("error");
 			return;
 		}
-		ValidFirstName = true;
-		firstNameErrors.text("There are no errors").removeClass("error").addClass("success");
+		ValidLastName = true;
+		lastNameErrors.text("There are no errors").removeClass("error").addClass("success");
 		
 	});
 
@@ -67,7 +67,7 @@ $(document).ready(function(){
 
 	//Validate Email
 	$("#email")
-		.blur(function(){
+		.focus(function(){
 			if($(this).val().length === 0){
 				$(this).parent().find('span.input-errors').empty();
 				$(this).parent().find('span.input-errors').append("<ul class='error'></ul>");
@@ -102,7 +102,7 @@ $(document).ready(function(){
 	//Validate Password
 	//Focus is when you are actually in an element
 	$("#password")
-		.blur(function(){
+		.focus(function(){
 			if($(this).val().length === 0){
 				$(this).parent().find('span.input-errors').empty();
 				$(this).parent().find('span.input-errors').append("<ul class='error'></ul>");
@@ -122,6 +122,7 @@ $(document).ready(function(){
 			} else if( ($(this).val().length === 0) && ( $("li.required").length === 0) ) {
 				$(this).parent().find('span.input-errors ul').append("<li class='required'>This is required</li>");
 			}
+
 			var uppercasePattern = /(?=(.*[A-Z])).{1,}/;
 			if($(this).val().match(uppercasePattern)){
 				$(this).parent().find('span.input-errors .uppercase').remove();
@@ -132,13 +133,13 @@ $(document).ready(function(){
 			if($(this).val().match(numbersPattern)){
 				$(this).parent().find('span.input-errors .numbers').remove();
 			} else if( (!$(this).val().match(numbersPattern)) && ($("li.numbers").length === 0) ){
-				$(this).parent().find('span.input-errors ul').append("<li class='numbers'>Must include at least 1 Uppercase Character</li>")
+				$(this).parent().find('span.input-errors ul').append("<li class='numbers'>Must include at least 3 Numbers</li>")
 			}
 			var specialPattern = /(?=(.*[!#$%^&+=])).{1,}/;
 			if($(this).val().match(specialPattern)){
 				$(this).parent().find('span.input-errors .special').remove();
 			} else if( (!$(this).val().match(specialPattern)) && ($("li.special").length === 0) ){
-				$(this).parent().find('span.input-errors ul').append("<li class='special'>Must include at least 1 Uppercase Character</li>")
+				$(this).parent().find('span.input-errors ul').append("<li class='special'>Must include at least 1 Special Character</li>")
 			}
 
 			if($(this).val() === $('#confirmPassword').val()){
@@ -154,7 +155,7 @@ $(document).ready(function(){
 		});
 
 	$("#confirmPassword")
-		.blur(function(){
+		.focus(function(){
 			if($(this).val().length === 0){
 				$(this).parent().find('span.input-errors').empty();
 				$(this).parent().find('span.input-errors').append("<ul class='error'></ul>");
@@ -174,6 +175,7 @@ $(document).ready(function(){
 
 			if($(this).val() === $('#password').val() ){
 				$(this).parent().find('span.input-errors .match').remove();
+				ValidConfirmPassword = true;
 			} else if( ($(this).val() !== $('#password').val()) && ( $("li.match").length === 0) ) {
 				$(this).parent().find('span.input-errors ul').append("<li class='match'>Password must match</li>");
 			}
@@ -192,7 +194,10 @@ var mainImage = $("#tablettop").css("background-image");
 console.log(mainImage);
 
 	console.log("this works");
-  if (ValidFirstName === true) {
+  if (ValidFirstName === true && ValidLastName === true && ValidEmail === true 
+  	&& ValidPassword === true 
+  	&& ValidConfirmPassword === true 
+  	){
     console.log("true");
     $("body").css("overflow", "auto");
     $(mainBox).hide();
