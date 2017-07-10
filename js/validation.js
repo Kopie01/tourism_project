@@ -19,19 +19,19 @@ $(document).ready(function(){
 		firstNameErrors.empty();
 		//This element is required
 		if($(this).val().length === 0){
-			firstNameErrors.text("This field is required").removeClass("success").addClass("error");
+			firstNameErrors.text("This is required").removeClass("success").addClass("error");
 			return;
 		}
-		//Min Length 5
-		if($(this).val().length < 5){
-			firstNameErrors.text("This field requires at least 5 characters").removeClass("success").addClass("error");
-			return;
-		}
+		// //Min Length 5
+		// if($(this).val().length < 5){
+		// 	firstNameErrors.text("This field requires at least 5 characters").removeClass("success").addClass("error");
+		// 	return;
+		// }
 		//Max Length 20
-		if($(this).val().length > 20){
-			firstNameErrors.text("This field cannot be more than 20 characters").removeClass("success").addClass("error");
-			return;
-		}
+		// if($(this).val().length > 20){
+		// 	firstNameErrors.text("This field cannot be more than 20 characters").removeClass("success").addClass("error");
+		// 	return;
+		// }
 		firstNameErrors.text("There are no errors").removeClass("error").addClass("success");
 		ValidFirstName = true;
 	});
@@ -48,11 +48,11 @@ $(document).ready(function(){
 			firstNameErrors.text("This field is required").removeClass("success").addClass("error");
 			return;
 		}
-		//Min Length 5
-		if($(this).val().length < 5){
-			firstNameErrors.text("This field requires at least 5 characters").removeClass("success").addClass("error");
-			return;
-		}
+		// //Min Length 5
+		// if($(this).val().length < 5){
+		// 	firstNameErrors.text("This field requires at least 5 characters").removeClass("success").addClass("error");
+		// 	return;
+		// }
 		//Max Length 20
 		if($(this).val().length > 20){
 			firstNameErrors.text("This field cannot be more than 20 characters").removeClass("success").addClass("error");
@@ -68,18 +68,16 @@ $(document).ready(function(){
 	//Validate Email
 	$("#email")
 		.blur(function(){
-
 			if($(this).val().length === 0){
 				$(this).parent().find('span.input-errors').empty();
 				$(this).parent().find('span.input-errors').append("<ul class='error'></ul>");
-				$(this).parent().find('span.input-errors ul').append("<li class='required'>This is required</li>"
-					+"<li class='email'>Must be a valid Email</li>"
+				$(this).parent().find('span.input-errors ul').append(
+						"<li class='required'>This is required</li>"
 						)
 				}
 		}).blur(function(){
 
 		}).keyup(function(){
-			console.log("hi");
 			if($(this).val().length !== 0 ){
 				$(this).parent().find('span.input-errors .required').remove();
 			} else if( ($(this).val().length === 0) && ( $("li.required").length === 0) ) {
