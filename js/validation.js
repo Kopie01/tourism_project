@@ -197,10 +197,10 @@ console.log(mainImage);
 
 	console.log("this works");
   if (ValidFirstName === true 
-  	// && ValidLastName === true 
-  	// && ValidEmail === true 
-  	// && ValidPassword === true 
-  	// && ValidConfirmPassword === true 
+  	&& ValidLastName === true 
+  	&& ValidEmail === true 
+  	&& ValidPassword === true 
+  	&& ValidConfirmPassword === true 
   	){
     console.log("true");
     $("body").css("overflow", "auto");
