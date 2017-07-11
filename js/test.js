@@ -330,6 +330,102 @@ if (selectedNoGuests === "five" || selectedNoGuests === "six"){
 
 })
 
+// Code to change Accommodation options based on number of nights selected for Nelson
+
+
+$("#nelsonVenue").change(function(){
+
+var selectedVenue = $(this).val();
+console.log(selectedVenue);
+
+if (selectedVenue === "motel"){
+
+  $("#nelsonNights option[value='one'],[value='two'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+  $("#nelsonNights option[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").show();
+ 
+  
+  
+}else if (selectedVenue === "hotel"){
+  $("#nelsonNights option[value='one']").show();
+  $("#nelsonNights option[value='two']").show();
+  $("#nelsonNights option[value='three']").show();
+  $("#nelsonNights option[value='four']").show();
+  $("#nelsonNights option[value='five']").show();
+  $("#nelsonNights option[value='six']").hide();
+  $("#nelsonNights option[value='seven']").hide();
+  $("#nelsonNights option[value='eight']").hide();
+  $("#nelsonNights option[value='nine']").hide();
+  $("#nelsonNights option[value='ten']").hide();
+  $("#nelsonNights option[value='eleven']").hide();
+  $("#nelsonNights option[value='twelve']").hide();
+  $("#nelsonNights option[value='thirteen']").hide();
+  $("#nelsonNights option[value='fourteen']").hide();
+  $("#nelsonNights option[value='fifteen']").hide();
+
+
+}else if (selectedVenue === "hostel"){
+  $("#nelsonNights option[value='one']").show();
+  $("#nelsonNights option[value='two']").show();
+  $("#nelsonNights option[value='three']").show();
+  $("#nelsonNights option[value='four']").show();
+  $("#nelsonNights option[value='five']").show();
+  $("#nelsonNights option[value='six']").show();
+  $("#nelsonNights option[value='seven']").show();
+  $("#nelsonNights option[value='eight']").show();
+  $("#nelsonNights option[value='nine']").show();
+  $("#nelsonNights option[value='ten']").show();
+  $("#nelsonNights option[value='eleven']").hide();
+  $("#nelsonNights option[value='twelve']").hide();
+  $("#nelsonNights option[value='thirteen']").hide();
+  $("#nelsonNights option[value='fourteen']").hide();
+  $("#nelsonNights option[value='fifteen']").hide();
+
+
+}else if (selectedVenue === "house"){
+  $("#nelsonNights option[value='one']").hide();
+  $("#nelsonNights option[value='two']").show();
+  $("#nelsonNights option[value='three']").show();
+  $("#nelsonNights option[value='four']").show();
+  $("#nelsonNights option[value='five']").show();
+  $("#nelsonNights option[value='six']").show();
+  $("#nelsonNights option[value='seven']").show();
+  $("#nelsonNights option[value='eight']").show();
+  $("#nelsonNights option[value='nine']").show();
+  $("#nelsonNights option[value='ten']").show();
+  $("#nelsonNights option[value='eleven']").show();
+  $("#nelsonNights option[value='twelve']").show();
+  $("#nelsonNights option[value='thirteen']").show();
+  $("#nelsonNights option[value='fourteen']").show();
+  $("#nelsonNights option[value='fifteen']").show();
+
+
+}
+
+else{
+
+  $("#nelsonNights option[value='one']").show();
+  $("#nelsonNights option[value='two']").show();
+  $("#nelsonNights option[value='three']").show();
+  $("#nelsonNights option[value='four']").show();
+  $("#nelsonNights option[value='five']").show();
+  $("#nelsonNights option[value='six']").show();
+  $("#nelsonNights option[value='seven']").show();
+  $("#nelsonNights option[value='eight']").show();
+  $("#nelsonNights option[value='nine']").show();
+  $("#nelsonNights option[value='ten']").show();
+  $("#nelsonNights option[value='eleven']").show();
+  $("#nelsonNights option[value='twelve']").show();
+  $("#nelsonNights option[value='thirteen']").show();
+  $("#nelsonNights option[value='fourteen']").show();
+  $("#nelsonNights option[value='fifteen']").show();
+
+}
+
+
+
+})
+
+
 
 
 
