@@ -68,10 +68,10 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
  var typeVenue= new Array();
  typeVenue["none"]=0;
- typeVenue["Hostel"]=30;
- typeVenue["Hotel"]=78.50;
- typeVenue["Motel"]=45;
- typeVenue["House"]=60;
+ typeVenue["hostel"]=30;
+ typeVenue["hotel"]=78.50;
+ typeVenue["motel"]=45;
+ typeVenue["house"]=60;
 
 
  var numberN= new Array();
@@ -162,26 +162,10 @@ function calculateTotal()
 
 // Code to link places to map
 var places = [];
-
-// function storePanel(option){
-//   console.log(option.value);
-  
-//   var placeName = option.value;
-//   var name = placeName.indexOf(",");
-//   placeName = placeName.substring(0, name != -1 ? name : placeName.length);
-//   placeName = placeName.toLowerCase();
-//   places.push(placeName);
-//   console.log(places)
-
-//   // for (var i = 0; i < places[i].length; i++) {
-    
-//   // }if (placeName === placeName){
-//   //   $(this).hide();
-//   //   console.log("here");
-//   // }
 var multiNames = [];
 var startName;
 var endName;
+
 
 $("#start").change(function(){
 
@@ -207,39 +191,7 @@ $("#waypoints").change(function(){
 });
 
 
-  
 
-// multiNames = $("#waypoints").val();
-// console.log(multiNames);
-//   for (var i = 0; i < waypoints.length; i++) {
-//     multiNames.push(waypoints[i]);
-//     console.log(multiNames);
-
-//   }
-
-
-  // for (var i = 0; i< multiNames.length; i++){
-
-  //   console.log();
-  //   var newMulti = [];
-  //   // var multiNames = multiNames[i].split(",")[0];
-  //   multiNames = multiNames.toLowerCase();
-  //   newMulti.push(multiNames);
-  //   console.log(newMulti)
-
-  // if(name === name){
-  //   $(name).hide();
-  // }
-  // var wayPointsDouble = [];
-  // var waypoints = $("#waypoints").val();
-  // for (var i = 0; i < waypoints.length; i++) {
-  //   wayPointsDouble.push(waypoints[i]);
-  // }
-
-  // console.log(wayPointsDouble);
- // var doubleNames = []
- // doubleNames.push(name);
- // console.log(doubleNames);
 
 
 
@@ -279,18 +231,33 @@ $("#submit").click(function(){
   
 })
 
-// for (var i = 0; i < places[i].length; i++) {
-    
-//   }if (placeName === placeName){
-//     $(this).hide();
-//   }
+// Code to change Accommodation options based on number of guests selected
 
-// function nelsonAdd(){
+
+$("#number").change(function(){
+
+var selectedNoGuests = $(this).val();
+console.log(selectedNoGuests);
+
+
+if (selectedNoGuests === "one" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#venue option[value='motel']").hide();
   
-//   var element = document.getElementsByClassName("nelsonclass");
-//   var nelsonArray = element[0].className
-//   places[0] = "nelsonclass";
-// }
+}else {$("#venue option[value='motel']").show();}
+
+if (selectedNoGuests === "three" || selectedNoGuests === "four" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#venue option[value='hotel']").hide();
+  
+}else {$("#venue option[value='hotel']").show();}
+
+if (selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#venue option[value='house']").hide();
+  
+}else {$("#venue option[value='house']").show();}
+
+})
+
+
 
 
 

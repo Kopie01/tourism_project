@@ -110,6 +110,23 @@ function getNumber(name)
     return nightNumbers;
 }
 
+//This function finds the type of venue based on the 
+//drop down selection
+function getVenueType(name)
+{
+    var venueType=0;
+    //reference to the form id="venue"
+    var theForm = document.forms["totalCost"];
+    //reference to the select id="venue"
+     var selectedVenue = theForm.elements[name +"Venue"];
+     
+    //set guest number equal to value user chose
+    //For example numberGuests["five".value] would be equal to 5
+    venueType = typeVenue[selectedVenue.value];
+
+    //return venueType
+    return venueType;
+}
 
 //This function finds the number of guests based on the 
 //drop down selection
@@ -129,29 +146,18 @@ function getGuestNumbers()
     return guestNumbers;
 }
 
-//This function finds the type of venue based on the 
-//drop down selection
-function getVenueType()
-{
-    var venueType=0;
-    //reference to the form id="venue"
-    var theForm = document.forms["totalCost"];
-    //reference to the select id="venue"
-     var selectedVenue = theForm.elements["venue"];
-     
-    //set guest number equal to value user chose
-    //For example numberGuests["five".value] would be equal to 5
-    venueType = typeVenue[selectedVenue.value];
 
-    //return venueType
-    return venueType;
-}
         
 function calculateTotal()
 {
     //get the total price by calling the functions
-    var accomPrice =  getGuestNumbers() * getVenueType() * (getNumber("nelson") + getNumber("kaikoura") + getNumber("christchurch") + getNumber("queenstown") + getNumber("wanaka")) ;
-    
+    var accomPrice =  getGuestNumbers() * ((getNumber("nelson") * getVenueType("nelson"))
+      + (getNumber("kaikoura")* getVenueType("kaikoura"))
+      + (getNumber("christchurch")* getVenueType("christchurch"))
+      + (getNumber("queenstown")* getVenueType("queenstown"))
+      + (getNumber("wanaka")* getVenueType("wanaka")));
+      
+
     //display the result
     var total = document.getElementById('totalPrice');
     total.style.display='block';
@@ -240,20 +246,87 @@ var selectedNoGuests = $(this).val();
 console.log(selectedNoGuests);
 
 
+// Nelson
 if (selectedNoGuests === "one" || selectedNoGuests === "five" || selectedNoGuests === "six"){
-  $("#venue option[value='motel']").hide();
+  $("#nelsonVenue option[value='motel']").hide();
   
-}else {$("#venue option[value='motel']").show();}
+}else {$("#nelsonVenue option[value='motel']").show();}
 
 if (selectedNoGuests === "three" || selectedNoGuests === "four" || selectedNoGuests === "five" || selectedNoGuests === "six"){
-  $("#venue option[value='hotel']").hide();
+  $("#nelsonVenue option[value='hotel']").hide();
   
-}else {$("#venue option[value='hotel']").show();}
+}else {$("#nelsonVenue option[value='hotel']").show();}
 
 if (selectedNoGuests === "five" || selectedNoGuests === "six"){
-  $("#venue option[value='house']").hide();
+  $("#nelsonVenue option[value='house']").hide();
   
-}else {$("#venue option[value='house']").show();}
+}else {$("#nelsonVenue option[value='house']").show();}
+
+// Kaikoura
+if (selectedNoGuests === "one" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#kaikouraVenue option[value='motel']").hide();
+  
+}else {$("#kaikouraVenue option[value='motel']").show();}
+
+if (selectedNoGuests === "three" || selectedNoGuests === "four" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#kaikouraVenue option[value='hotel']").hide();
+  
+}else {$("#kaikouraVenue option[value='hotel']").show();}
+
+if (selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#kaikouraVenue option[value='house']").hide();
+  
+}else {$("#kaikouraVenue option[value='house']").show();}
+
+// Christchurch
+if (selectedNoGuests === "one" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#christchurchVenue option[value='motel']").hide();
+  
+}else {$("#christchurchVenue option[value='motel']").show();}
+
+if (selectedNoGuests === "three" || selectedNoGuests === "four" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#christchurchVenue option[value='hotel']").hide();
+  
+}else {$("#christchurchVenue option[value='hotel']").show();}
+
+if (selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#christchurchVenue option[value='house']").hide();
+  
+}else {$("#christchurchVenue option[value='house']").show();}
+
+// Queenstown
+if (selectedNoGuests === "one" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#queenstownVenue option[value='motel']").hide();
+  
+}else {$("#queenstownVenue option[value='motel']").show();}
+
+if (selectedNoGuests === "three" || selectedNoGuests === "four" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#queenstownVenue option[value='hotel']").hide();
+  
+}else {$("#queenstownVenue option[value='hotel']").show();}
+
+if (selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#queenstownVenue option[value='house']").hide();
+  
+}else {$("#queenstownVenue option[value='house']").show();}
+
+// Wanaka
+if (selectedNoGuests === "one" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#wanakaVenue option[value='motel']").hide();
+  
+}else {$("#wanakaVenue option[value='motel']").show();}
+
+if (selectedNoGuests === "three" || selectedNoGuests === "four" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#wanakaVenue option[value='hotel']").hide();
+  
+}else {$("#wanakaVenue option[value='hotel']").show();}
+
+if (selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#wanakaVenue option[value='house']").hide();
+  
+}else {$("#wanakaVenue option[value='house']").show();}
+
+
 
 })
 
