@@ -240,12 +240,24 @@ var selectedNoGuests = $(this).val();
 console.log(selectedNoGuests);
 
 
-if (selectedNoGuests === "one"){
+if (selectedNoGuests === "one" || selectedNoGuests === "five" || selectedNoGuests === "six"){
   $("#venue option[value='motel']").hide();
   
 }else {$("#venue option[value='motel']").show();}
 
+if (selectedNoGuests === "three" || selectedNoGuests === "four" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#venue option[value='hotel']").hide();
+  
+}else {$("#venue option[value='hotel']").show();}
+
+if (selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#venue option[value='house']").hide();
+  
+}else {$("#venue option[value='house']").show();}
+
 })
+
+
 
 
 
