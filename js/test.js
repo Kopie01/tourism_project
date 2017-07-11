@@ -1,214 +1,339 @@
-var ValidFirstName = false;
-  var ValidLastName = false;
-  var ValidEmail = false;
-  var ValidPassword = false;
-  var ValidConfirmPassword = false;
+var containerEl = document.querySelector('.container');
 
-$(document).ready(function(){
+            var mixer = mixitup(containerEl, {
+                controls: {
+                    toggleLogic: 'and'
+                }
+            });
 
 
 
-  // //When the submit button is pressed
-  // $("#submitButton").click(function(event){
-  //  event.preventDefault();
-  // });
 
-  //Blur is when you have left an element
-  $("#firstName").blur(function(){
-    var firstNameErrors = $(this).parent().find('span.input-errors');
-    firstNameErrors.empty();
-    //This element is required
-    if($(this).val().length === 0){
-      firstNameErrors.text("This field is required").removeClass("success").addClass("error");
-      return;
-    }
-    // //Min Length 5
-    // if($(this).val().length < 5){
-    //  firstNameErrors.text("This field requires at least 5 characters").removeClass("success").addClass("error");
-    //  return;
-    // }
-    //Max Length 20
-    if($(this).val().length > 20){
-      firstNameErrors.text("This field cannot be more than 20 characters").removeClass("success").addClass("error");
-      return;
-    }
-    firstNameErrors.text("There are no errors").removeClass("error").addClass("success");
-    ValidFirstName = true;
+// Map
+
+function initMap() {
+  var directionsService = new google.maps.DirectionsService;
+  var directionsDisplay = new google.maps.DirectionsRenderer;
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 6,
+    center: {lat: -43.147679, lng: 172.837979}
   });
+  directionsDisplay.setMap(map);
 
+  document.getElementById('submit').addEventListener('click', function() {
+    calculateAndDisplayRoute(directionsService, directionsDisplay);
+  });
+}
 
-  //Validate Last Name
-
-  //Blur is when you have left an element
-  $("#lastname").blur(function(){
-    var firstNameErrors = $(this).parent().find('span.input-errors');
-    firstNameErrors.empty();
-    //This element is required
-    if($(this).val().length === 0){
-      firstNameErrors.text("This field is required").removeClass("success").addClass("error");
-      return;
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+  var waypts = [];
+  var checkboxArray = document.getElementById('waypoints');
+  for (var i = 0; i < checkboxArray.length; i++) {
+    if (checkboxArray.options[i].selected) {
+      waypts.push({
+        location: checkboxArray[i].value,
+        stopover: true
+      });
     }
-    // //Min Length 5
-    // if($(this).val().length < 5){
-    //  firstNameErrors.text("This field requires at least 5 characters").removeClass("success").addClass("error");
-    //  return;
-    // }
-    //Max Length 20
-    if($(this).val().length > 20){
-      firstNameErrors.text("This field cannot be more than 20 characters").removeClass("success").addClass("error");
-      return;
+  }
+
+  directionsService.route({
+    origin: document.getElementById('start').value,
+    destination: document.getElementById('end').value,
+    waypoints: waypts,
+    optimizeWaypoints: true,
+    travelMode: 'DRIVING'
+  }, function(response, status) {
+    if (status === 'OK') {
+      directionsDisplay.setDirections(response);
+      var route = response.routes[0];
+      var summaryPanel = document.getElementById('directions-panel');
+      summaryPanel.innerHTML = '';
+      // For each route, display summary information.
+      for (var i = 0; i < route.legs.length; i++) {
+        var routeSegment = i + 1;
+        summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+            '</b><br>';
+        summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+        summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+        summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+      }
+    } else {
+      window.alert('Directions request failed due to ' + status);
     }
-    ValidFirstName = true;
-    firstNameErrors.text("There are no errors").removeClass("error").addClass("success");
+  });
+}
+
+// // calculation javascript
+
+ var typeVenue= new Array();
+ typeVenue["none"]=0;
+ typeVenue["hostel"]=30;
+ typeVenue["hotel"]=78.50;
+ typeVenue["motel"]=45;
+ typeVenue["house"]=60;
+
+
+ var numberN= new Array();
+ numberN["none"]=0;
+ numberN["one"]=1;
+ numberN["two"]=2;
+ numberN["three"]=3;
+ numberN["four"]=4;
+ numberN["five"]=5;
+ numberN["six"]=6;
+ numberN["seven"]=7;
+ numberN["eight"]=8;
+ numberN["nine"]=9;
+ numberN["ten"]=10;
+ numberN["eleven"]=11;
+ numberN["twelve"]=12;
+ numberN["thirteen"]=13;
+ numberN["fourteen"]=14;
+ numberN["fifteen"]=15;
+ 
+//This function finds the number of nights based on the 
+//drop down selection
+function getNumber(name)
+{
+    var nightNumbers=0;
+    //reference to the form id="totalCost"
+    var theForm = document.forms["totalCost"];
+    //reference to the select id="nelsonNights"
+     var selectedNumber = theForm.elements[name + "Nights"];
+     
+    //set guest number equal to value user chose
+    //For example numberN["five".value] would be equal to 5
+    nightNumbers = numberN[selectedNumber.value];
+
+    //return nightNumbers
+    return nightNumbers;
+}
+
+
+//This function finds the number of guests based on the 
+//drop down selection
+function getGuestNumbers()
+{
+    var guestNumbers=0;
+    //reference to the form id="guests"
+    var theForm = document.forms["totalCost"];
+    //reference to the select id="number"
+     var selectedNumber = theForm.elements["number"];
+     
+    //set guest number equal to value user chose
+    //For example numberN["five".value] would be equal to 5
+    guestNumbers = numberN[selectedNumber.value];
+
+    //return guestNumbers
+    return guestNumbers;
+}
+
+//This function finds the type of venue based on the 
+//drop down selection
+function getVenueType()
+{
+    var venueType=0;
+    //reference to the form id="venue"
+    var theForm = document.forms["totalCost"];
+    //reference to the select id="venue"
+     var selectedVenue = theForm.elements["venue"];
+     
+    //set guest number equal to value user chose
+    //For example numberGuests["five".value] would be equal to 5
+    venueType = typeVenue[selectedVenue.value];
+
+    //return venueType
+    return venueType;
+}
+        
+function calculateTotal()
+{
+    //get the total price by calling the functions
+    var accomPrice =  getGuestNumbers() * getVenueType() * (getNumber("nelson") + getNumber("kaikoura") + getNumber("christchurch") + getNumber("queenstown") + getNumber("wanaka")) ;
     
-  });
+    //display the result
+    var total = document.getElementById('totalPrice');
+    total.style.display='block';
+    total.innerHTML = "Your total cost for accommodation is $"+accomPrice;
 
- // Validate Email try again
-$("#email").blur(function(){
-    var emailErrors = $(this).parent().find('span.input-errors');
-    emailErrors.empty();
-    //This element is required
-    if($(this).val().length === 0){
-      emailErrors.text("This field is required").removeClass("success").addClass("error");
-      return;
+}
+
+
+// Code to link places to map
+var places = [];
+var multiNames = [];
+var startName;
+var endName;
+
+
+$("#start").change(function(){
+
+  $("#waypoints option, #end option").each(function(){
+    if($(this).attr("value") === $("#start, #end").val()){
+      $(this).removeAttr("selected").hide();
     }
-
-    });
-
-  // //Validate Email
-  // $("#email")
-  //   .focus(function(){
-  //     if($(this).val().length === 0){
-  //       $(this).parent().find('span.input-errors').empty();
-  //       $(this).parent().find('span.input-errors').append("<ul class='error'></ul>");
-  //       $(this).parent().find('span.input-errors ul').append(
-  //           "<li class='required'>This is required</li>"+
-  //           "<li class='email'>Must be a valid Email</li>"
-  //           )
-  //       }
-    }).blur(function(){
-
-    }).keyup(function(){
-      if($(this).val().length !== 0 ){
-        $(this).parent().find('span.input-errors .required').remove();
-      } else if( ($(this).val().length === 0) && ( $("li.required").length === 0) ) {
-        $(this).parent().find('span.input-errors ul').append("<li class='required'>This is required</li>");
-      }
-      var emailPattern = /[a-z0-9._-]+@[a-z0-9.-_]+\.[a-z]{2,4}/i;
-      if($(this).val().match(emailPattern)){
-        $(this).parent().find('span.input-errors .email').remove();
-      } else if( (!$(this).val().match(emailPattern)) && ($("li.email").length === 0) ){
-        $(this).parent().find('span.input-errors ul').append("<li class='email'>Must be a valid Email</li>")
-      }
-      if($(this).parent().find('span.input-errors ul li').length === 0){
-        ValidEmail = true;
-      }
-
+    else $(this).show();
   });
 
 
-
-
-
-  //Validate Password
-  //Focus is when you are actually in an element
-  $("#password")
-    .focus(function(){
-      if($(this).val().length === 0){
-        $(this).parent().find('span.input-errors').empty();
-        $(this).parent().find('span.input-errors').append("<ul class='error'></ul>");
-        $(this).parent().find('span.input-errors ul').append(
-            "<li class='required'>This is required</li>"+
-            "<li class='uppercase'>Must include at least 1 Uppercase character</li>"+
-            "<li class='numbers'>Must include at least 3 Numbers</li>"+
-            "<li class='special'>Must include at least 1 Special Character</li>"
-
-            )
-        }
-    }).blur(function(){
-
-    }).keyup(function(){
-      if($(this).val().length !== 0 ){
-        $(this).parent().find('span.input-errors .required').remove();
-      } else if( ($(this).val().length === 0) && ( $("li.required").length === 0) ) {
-        $(this).parent().find('span.input-errors ul').append("<li class='required'>This is required</li>");
-      }
-      var uppercasePattern = /(?=(.*[A-Z])).{1,}/;
-      if($(this).val().match(uppercasePattern)){
-        $(this).parent().find('span.input-errors .uppercase').remove();
-      } else if( (!$(this).val().match(uppercasePattern)) && ($("li.uppercase").length === 0) ){
-        $(this).parent().find('span.input-errors ul').append("<li class='uppercase'>Must include at least 1 Uppercase Character</li>")
-      }
-      var numbersPattern = /(?=(.*[0-9]){3,}).{3,}/;
-      if($(this).val().match(numbersPattern)){
-        $(this).parent().find('span.input-errors .numbers').remove();
-      } else if( (!$(this).val().match(numbersPattern)) && ($("li.numbers").length === 0) ){
-        $(this).parent().find('span.input-errors ul').append("<li class='numbers'>Must include at least 1 Uppercase Character</li>")
-      }
-      var specialPattern = /(?=(.*[!#$%^&+=])).{1,}/;
-      if($(this).val().match(specialPattern)){
-        $(this).parent().find('span.input-errors .special').remove();
-      } else if( (!$(this).val().match(specialPattern)) && ($("li.special").length === 0) ){
-        $(this).parent().find('span.input-errors ul').append("<li class='special'>Must include at least 1 Uppercase Character</li>")
-      }
-
-      if($(this).val() === $('#confirmPassword').val()){
-        $('#confirmPassword').parent().find('span.input-errors .match').remove();
-      } else if( ($(this).val() !== $('#confirmPassword').val()) && ( $("li.match").length === 0) ) {
-        $('#confirmPassword').parent().find('span.input-errors ul').append("<li class='match'>Password must match</li>");
-      }
-
-      if($(this).parent().find('span.input-errors ul li').length === 0){
-        ValidPassword = true;
-      }
-
-    });
-
-  $("#confirmPassword")
-    .blur(function(){
-      if($(this).val().length === 0){
-        $(this).parent().find('span.input-errors').empty();
-        $(this).parent().find('span.input-errors').append("<ul class='error'></ul>");
-        $(this).parent().find('span.input-errors ul').append(
-            "<li class='required'>This is required</li>"+
-            "<li class='match'>Password must match</li>"
-            )
-        }
-    }).blur(function(){
-
-    }).keyup(function(){
-      if($(this).val().length !== 0 ){
-        $(this).parent().find('span.input-errors .required').remove();
-      } else if( ($(this).val().length === 0) && ( $("li.required").length === 0) ) {
-        $(this).parent().find('span.input-errors ul').append("<li class='required'>This is required</li>");
-      }
-
-      if($(this).val() === $('#password').val() ){
-        $(this).parent().find('span.input-errors .match').remove();
-      } else if( ($(this).val() !== $('#password').val()) && ( $("li.match").length === 0) ) {
-        $(this).parent().find('span.input-errors ul').append("<li class='match'>Password must match</li>");
-      }
-    });
-
-
+  
 });
+
+$("#waypoints").change(function(){
+  var selectedOptions = $(this).val();
+
+
+  $(selectedOptions).each(function(id, value){
+    $("#end option[value=\""+ value +"\"").removeAttr("selected").hide();
+  });
   
+});
+
+
+
+
+
+
+$("#submit").click(function(){
+  places = [];
+
+  var start = $("#start").val();
+  places.push(start);
+  var end = $("#end").val();
+  places.push(end);
+
+  var waypoints = $("#waypoints").val();
+  for (var i = 0; i < waypoints.length; i++) {
+    places.push(waypoints[i]);
+  }
+  console.log(places);
+  var newPlaces = [];
+
+  for (var i = 0; i< places.length; i++){
+
+    console.log();
+
+    var name = places[i].split(",")[0];
+    name = name.toLowerCase();
+    newPlaces.push(name);
+    console.log(places)
+  }
+
+  places = newPlaces;
+  console.log(places);
+
+  for (var i = 0; i< places.length; i++) {
   
+    $("#"+places[i]+"Panel").show();
+  
+}
+  
+})
 
-$("#submitButton").click(function(){
-      event.preventDefault();
+// Code to change Accommodation options based on number of guests selected
 
-var mainBox = document.getElementById("mainbox");
-var mainImage = $("#tablettop").css("background-image");
-console.log(mainImage);
 
-  console.log("this works");
-  if (ValidFirstName === true) {
-    console.log("true");
-    $("body").css("overflow", "auto");
-    $(mainBox).hide();
-    // $(mainImage).hide();
-    
-    
+$("#number").change(function(){
+
+var selectedNoGuests = $(this).val();
+console.log(selectedNoGuests);
+
+
+if (selectedNoGuests === "one"){
+  $("#venue option[value='motel']").hide();
+  
+}else {$("#venue option[value='motel']").show();}
+
+})
+
+
+
+
+var nelsonflag = false;
+var kaikouraflag = false;
+var christchurchflag = false;
+var queenstownflag = false;
+var wanakaflag = false;
+
+
+$("#nelsonbutton").click(function(){
+  var nelsonlist = document.getElementById("nelsonPanel");
+  if (nelsonflag === false) {
+    $(nelsonlist).show();
+    $("#nelsonbutton").css("background-color","#F8C113");
+    nelsonflag = true;
+  }else{
+    $(nelsonlist).hide();
+    $("#nelsonbutton").css("background-color","#0091f9");
+    nelsonflag = false;
   }
 })
+
+$("#kaikourabutton").click(function(){
+  var kaikouralist = document.getElementById("kaikouraPanel");
+  if (kaikouraflag === false) {
+    $(kaikouralist).show();
+    $("#kaikourabutton").css("background-color","#F8C113");
+    kaikouraflag = true;
+  }else{
+    $(kaikouralist).hide();
+    $("#kaikourabutton").css("background-color","#0091f9");
+    kaikouraflag = false;
+  }
+})
+
+$("#christchurchbutton").click(function(){
+  var christchurchlist = document.getElementById("christchurchPanel");
+  if (christchurchflag === false) {
+    $(christchurchlist).show();
+    $("#christchurchbutton").css("background-color","#F8C113");
+    christchurchflag = true;
+  }else{
+    $(christchurchlist).hide();
+    $("#christchurchbutton").css("background-color","#0091f9");
+    christchurchflag = false;
+  }
+})
+
+$("#queenstownbutton").click(function(){
+  var queenstownlist = document.getElementById("queenstownPanel");
+  if (queenstownflag === false) {
+    $(queenstownlist).show();
+    $("#queenstownbutton").css("background-color","#F8C113");
+    queenstownflag = true;
+  }else{
+    $(queenstownlist).hide();
+    $("#queenstownbutton").css("background-color","#0091f9");
+    queenstownflag = false;
+  }
+})
+
+$("#wanakabutton").click(function(){
+  var wanakalist = document.getElementById("wanakaPanel");
+  if (wanakaflag === false) {
+    $(wanakalist).show();
+    $("#wanakabutton").css("background-color","#F8C113");
+    wanakaflag = true;
+  }else{
+    $(wanakalist).hide();
+    $("#wanakabutton").css("background-color","#0091f9");
+    wanakaflag = false;
+  }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
