@@ -110,6 +110,23 @@ function getNumber(name)
     return nightNumbers;
 }
 
+//This function finds the type of venue based on the 
+//drop down selection
+function getVenueType(name)
+{
+    var venueType=0;
+    //reference to the form id="venue"
+    var theForm = document.forms["totalCost"];
+    //reference to the select id="venue"
+     var selectedVenue = theForm.elements[name +"Venue"];
+     
+    //set guest number equal to value user chose
+    //For example numberGuests["five".value] would be equal to 5
+    venueType = typeVenue[selectedVenue.value];
+
+    //return venueType
+    return venueType;
+}
 
 //This function finds the number of guests based on the 
 //drop down selection
@@ -129,29 +146,18 @@ function getGuestNumbers()
     return guestNumbers;
 }
 
-//This function finds the type of venue based on the 
-//drop down selection
-function getVenueType()
-{
-    var venueType=0;
-    //reference to the form id="venue"
-    var theForm = document.forms["totalCost"];
-    //reference to the select id="venue"
-     var selectedVenue = theForm.elements["venue"];
-     
-    //set guest number equal to value user chose
-    //For example numberGuests["five".value] would be equal to 5
-    venueType = typeVenue[selectedVenue.value];
 
-    //return venueType
-    return venueType;
-}
         
 function calculateTotal()
 {
     //get the total price by calling the functions
-    var accomPrice =  getGuestNumbers() * getVenueType() * (getNumber("nelson") + getNumber("kaikoura") + getNumber("christchurch") + getNumber("queenstown") + getNumber("wanaka")) ;
-    
+    var accomPrice =  getGuestNumbers() * ((getNumber("nelson") * getVenueType("nelson"))
+      + (getNumber("kaikoura")* getVenueType("kaikoura"))
+      + (getNumber("christchurch")* getVenueType("christchurch"))
+      + (getNumber("queenstown")* getVenueType("queenstown"))
+      + (getNumber("wanaka")* getVenueType("wanaka")));
+      
+
     //display the result
     var total = document.getElementById('totalPrice');
     total.style.display='block';
@@ -240,22 +246,277 @@ var selectedNoGuests = $(this).val();
 console.log(selectedNoGuests);
 
 
+// Nelson
 if (selectedNoGuests === "one" || selectedNoGuests === "five" || selectedNoGuests === "six"){
-  $("#venue option[value='motel']").hide();
+  $("#nelsonVenue option[value='motel']").hide();
   
-}else {$("#venue option[value='motel']").show();}
+}else {$("#nelsonVenue option[value='motel']").show();}
 
 if (selectedNoGuests === "three" || selectedNoGuests === "four" || selectedNoGuests === "five" || selectedNoGuests === "six"){
-  $("#venue option[value='hotel']").hide();
+  $("#nelsonVenue option[value='hotel']").hide();
   
-}else {$("#venue option[value='hotel']").show();}
+}else {$("#nelsonVenue option[value='hotel']").show();}
 
 if (selectedNoGuests === "five" || selectedNoGuests === "six"){
-  $("#venue option[value='house']").hide();
+  $("#nelsonVenue option[value='house']").hide();
   
-}else {$("#venue option[value='house']").show();}
+}else {$("#nelsonVenue option[value='house']").show();}
+
+// Kaikoura
+if (selectedNoGuests === "one" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#kaikouraVenue option[value='motel']").hide();
+  
+}else {$("#kaikouraVenue option[value='motel']").show();}
+
+if (selectedNoGuests === "three" || selectedNoGuests === "four" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#kaikouraVenue option[value='hotel']").hide();
+  
+}else {$("#kaikouraVenue option[value='hotel']").show();}
+
+if (selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#kaikouraVenue option[value='house']").hide();
+  
+}else {$("#kaikouraVenue option[value='house']").show();}
+
+// Christchurch
+if (selectedNoGuests === "one" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#christchurchVenue option[value='motel']").hide();
+  
+}else {$("#christchurchVenue option[value='motel']").show();}
+
+if (selectedNoGuests === "three" || selectedNoGuests === "four" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#christchurchVenue option[value='hotel']").hide();
+  
+}else {$("#christchurchVenue option[value='hotel']").show();}
+
+if (selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#christchurchVenue option[value='house']").hide();
+  
+}else {$("#christchurchVenue option[value='house']").show();}
+
+// Queenstown
+if (selectedNoGuests === "one" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#queenstownVenue option[value='motel']").hide();
+  
+}else {$("#queenstownVenue option[value='motel']").show();}
+
+if (selectedNoGuests === "three" || selectedNoGuests === "four" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#queenstownVenue option[value='hotel']").hide();
+  
+}else {$("#queenstownVenue option[value='hotel']").show();}
+
+if (selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#queenstownVenue option[value='house']").hide();
+  
+}else {$("#queenstownVenue option[value='house']").show();}
+
+// Wanaka
+if (selectedNoGuests === "one" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#wanakaVenue option[value='motel']").hide();
+  
+}else {$("#wanakaVenue option[value='motel']").show();}
+
+if (selectedNoGuests === "three" || selectedNoGuests === "four" || selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#wanakaVenue option[value='hotel']").hide();
+  
+}else {$("#wanakaVenue option[value='hotel']").show();}
+
+if (selectedNoGuests === "five" || selectedNoGuests === "six"){
+  $("#wanakaVenue option[value='house']").hide();
+  
+}else {$("#wanakaVenue option[value='house']").show();}
+
+
 
 })
+
+// Code to change Accommodation options based on number of nights selected for Nelson
+
+
+$("#nelsonVenue").change(function(){
+
+var selectedVenue = $(this).val();
+console.log(selectedVenue);
+
+if (selectedVenue === "motel"){
+
+  $("#nelsonNights option[value='one'],[value='two'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+  $("#nelsonNights option[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").show();
+  $(".nelsonHotel").hide();
+  
+}else if (selectedVenue === "hotel"){
+  $("#nelsonNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five']").show();
+  $("#nelsonNights option[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").hide();
+  $("#nelsonNights option[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+
+}else if (selectedVenue === "hostel"){
+  $("#nelsonNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five'],[value='six']").show();
+  $("#nelsonNights option[value='seven'],[value='eight'],[value='nine'],[value='ten']").show();
+  $("#nelsonNights option[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+
+}else if (selectedVenue === "house"){
+  $("#nelsonNights option[value='one']").hide();
+  $("#nelsonNights option[value='two'],[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight']").show();
+  $("#nelsonNights option[value='nine'],[value='ten'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").show();
+}
+
+else{
+  $("#nelsonNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight']").show();
+  $("#nelsonNights option[value='nine'],[value='ten'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").show();
+
+}
+
+})
+
+// Code to change Accommodation options based on number of nights selected for Kaikoura
+
+
+$("#kaikouraVenue").change(function(){
+
+var selectedVenue = $(this).val();
+console.log(selectedVenue);
+
+if (selectedVenue === "motel"){
+
+  $("#kaikouraNights option[value='one'],[value='two'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+  $("#kaikouraNights option[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").show();
+ 
+}else if (selectedVenue === "hotel"){
+  $("#kaikouraNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five']").show();
+  $("#kaikouraNights option[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").hide();
+  $("#kaikouraNights option[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+
+}else if (selectedVenue === "hostel"){
+  $("#kaikouraNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five'],[value='six']").show();
+  $("#kaikouraNights option[value='seven'],[value='eight'],[value='nine'],[value='ten']").show();
+  $("#kaikouraNights option[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+
+}else if (selectedVenue === "house"){
+  $("#kaikouraNights option[value='one']").hide();
+  $("#kaikouraNights option[value='two'],[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight']").show();
+  $("#kaikouraNights option[value='nine'],[value='ten'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").show();
+}
+
+else{
+  $("#kaikouraNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight']").show();
+  $("#kaikouraNights option[value='nine'],[value='ten'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").show();
+
+}
+
+})
+
+// Code to change Accommodation options based on number of nights selected for Christchurch
+
+
+$("#christchurchVenue").change(function(){
+
+var selectedVenue = $(this).val();
+console.log(selectedVenue);
+
+if (selectedVenue === "motel"){
+
+  $("#christchurchNights option[value='one'],[value='two'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+  $("#christchurchNights option[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").show();
+ 
+}else if (selectedVenue === "hotel"){
+  $("#christchurchNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five']").show();
+  $("#christchurchNights option[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").hide();
+  $("#christchurchNights option[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+
+}else if (selectedVenue === "hostel"){
+  $("#christchurchNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five'],[value='six']").show();
+  $("#christchurchNights option[value='seven'],[value='eight'],[value='nine'],[value='ten']").show();
+  $("#christchurchNights option[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+
+}else if (selectedVenue === "house"){
+  $("#christchurchNights option[value='one']").hide();
+  $("#christchurchNights option[value='two'],[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight']").show();
+  $("#christchurchNights option[value='nine'],[value='ten'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").show();
+}
+
+else{
+  $("#christchurchNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight']").show();
+  $("#christchurchNights option[value='nine'],[value='ten'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").show();
+
+}
+
+})
+
+// Code to change Accommodation options based on number of nights selected for Queenstown
+
+
+$("#queenstownVenue").change(function(){
+
+var selectedVenue = $(this).val();
+console.log(selectedVenue);
+
+if (selectedVenue === "motel"){
+
+  $("#queenstownNights option[value='one'],[value='two'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+  $("#queenstownNights option[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").show();
+ 
+}else if (selectedVenue === "hotel"){
+  $("#queenstownNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five']").show();
+  $("#queenstownNights option[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").hide();
+  $("#queenstownNights option[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+
+}else if (selectedVenue === "hostel"){
+  $("#queenstownNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five'],[value='six']").show();
+  $("#queenstownNights option[value='seven'],[value='eight'],[value='nine'],[value='ten']").show();
+  $("#queenstownNights option[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+
+}else if (selectedVenue === "house"){
+  $("#queenstownNights option[value='one']").hide();
+  $("#queenstownNights option[value='two'],[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight']").show();
+  $("#queenstownNights option[value='nine'],[value='ten'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").show();
+}
+
+else{
+  $("#queenstownNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight']").show();
+  $("#queenstownNights option[value='nine'],[value='ten'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").show();
+
+}
+
+})
+
+// Code to change Accommodation options based on number of nights selected for Wanaka
+
+
+$("#wanakaVenue").change(function(){
+
+var selectedVenue = $(this).val();
+console.log(selectedVenue);
+
+if (selectedVenue === "motel"){
+
+  $("#wanakaNights option[value='one'],[value='two'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+  $("#wanakaNights option[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").show();
+ 
+
+}else if (selectedVenue === "hotel"){
+  $("#wanakaNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five']").show();
+  $("#wanakaNights option[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").hide();
+  $("#wanakaNights option[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+
+}else if (selectedVenue === "hostel"){
+  $("#wanakaNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five'],[value='six']").show();
+  $("#wanakaNights option[value='seven'],[value='eight'],[value='nine'],[value='ten']").show();
+  $("#wanakaNights option[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
+
+}else if (selectedVenue === "house"){
+  $("#wanakaNights option[value='one']").hide();
+  $("#wanakaNights option[value='two'],[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight']").show();
+  $("#wanakaNights option[value='nine'],[value='ten'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").show();
+}
+
+else{
+  $("#wanakaNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight']").show();
+  $("#wanakaNights option[value='nine'],[value='ten'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").show();
+
+}
+
+})
+
 
 
 

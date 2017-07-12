@@ -265,4 +265,14 @@ html, body {
 	font-size: 18px;
 }
 
+select{
+	height: 30px;
+	background-color: #ffffff;
+}
+
+#waypoints{
+	height: 80px;
+	border-radius: 5px;
+}
+
 

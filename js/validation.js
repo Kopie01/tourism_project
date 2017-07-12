@@ -6,7 +6,7 @@
 
 $(document).ready(function(){
 
-
+	
 
 	// //When the submit button is pressed
 	// $("#submitButton").click(function(event){
@@ -208,9 +208,6 @@ console.log(mainImage);
     $(mainImage).hide();
     // $(mainPage).show();
     // $(mapSection).show();
-    
-
-    
     
   }
 })
