@@ -201,6 +201,7 @@ html, body {
   float: left;
   width: 70%;
   height: 100%;
+  border-radius: 5px;
 }
 #right-panel {
   margin: 20px;
@@ -213,11 +214,14 @@ html, body {
 }
 #directions-panel {
   margin-top: 10px;
-  background-color: #FFEE77;
+  background:rgba(255, 255, 255, 0.7);
   padding: 10px;
   overflow: scroll;
   height: 174px;
   color: black;
+  border-radius: 5px;
+
+
 }
 
 /*calculation section*/
@@ -248,31 +252,52 @@ html, body {
 
 #nelsonPanel, #kaikouraPanel, #queenstownPanel, #christchurchPanel, #wanakaPanel{
 	display: none;
-	background-color: #b1b9c6;
+	background:rgba(50, 96, 116, 0.7);
 	padding: 20px;
 	border-radius: 5px;
-	width: 500px;
-	margin-top: 5px;
+	width: 550px;
+	margin-top: 20px;
+	
 
 }
 
 
 #submitButton{
-	width:200px;
+	width:210px;
 	height:50px;
 	background-color: #F8C113;
 	border-radius: 5px;
 	font-size: 18px;
 }
 
+#submit{
+	width:160px;
+	height:40px;
+	background-color: #F8C113;
+	border-radius: 5px;
+	font-size: 18px;
+	margin-top: 10px;
+}
+
 select{
 	height: 30px;
 	background-color: #ffffff;
+	font-size: 16px;
 }
 
 #waypoints{
 	height: 80px;
 	border-radius: 5px;
+}
+
+.fieldset{
+	border-radius: 5px;
+	background-image: url("../images/beach1.jpg");
+	background-repeat:no-repeat;
+	border-color: none;
+	padding: 20px;
+
+
 }
 
 
