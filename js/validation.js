@@ -7,14 +7,14 @@
 	var ValidConfirmPassword = false;
 
 $(document).ready(function(){
- //    $('html').animate({scrollTop:0}, 1);
- //    $('body').animate({scrollTop:0}, 1);
+    $('html').animate({scrollTop:0}, 1);
+    $('body').animate({scrollTop:0}, 1);
 
- //    $(window).on('load', function() {
-	//     setTimeout(function(){
-	//         $('html, body').scrollTop(0);
-	//     }, 0);
-	// });
+    $(window).on('load', function() {
+	    setTimeout(function(){
+	        $('html, body').scrollTop(0);
+	    }, 0);
+	});
 	
 
 	// Validate First Name
@@ -68,7 +68,7 @@ $(document).ready(function(){
 				$(this).parent().find('span.input-errors').append("<ul class='error'></ul>");
 				$(this).parent().find('span.input-errors ul').append(
 						"<li class='required'>This is required</li>"
-						)
+						);
 				}
 		}).blur(function(){
 
@@ -82,7 +82,7 @@ $(document).ready(function(){
 			if($(this).val().match(emailPattern)){
 				$(this).parent().find('span.input-errors .email').remove();
 			} else if( (!$(this).val().match(emailPattern)) && ($("li.email").length === 0) ){
-				$(this).parent().find('span.input-errors ul').append("<li class='email'>Must be a valid Email</li>")
+				$(this).parent().find('span.input-errors ul').append("<li class='email'>Must be a valid Email</li>");
 			}
 			if($(this).parent().find('span.input-errors ul li').length === 0){
 				ValidEmail = true;
@@ -103,7 +103,7 @@ $(document).ready(function(){
 						"<li class='numbers'>Must include at least 3 Numbers</li>"+
 						"<li class='special'>Must include at least 1 Special Character</li>"
 
-						)
+						);
 				}
 		}).blur(function(){
 
@@ -118,19 +118,19 @@ $(document).ready(function(){
 			if($(this).val().match(uppercasePattern)){
 				$(this).parent().find('span.input-errors .uppercase').remove();
 			} else if( (!$(this).val().match(uppercasePattern)) && ($("li.uppercase").length === 0) ){
-				$(this).parent().find('span.input-errors ul').append("<li class='uppercase'>Must include at least 1 Uppercase Character</li>")
+				$(this).parent().find('span.input-errors ul').append("<li class='uppercase'>Must include at least 1 Uppercase Character</li>");
 			}
 			var numbersPattern = /(?=(.*[0-9]){3,}).{3,}/;
 			if($(this).val().match(numbersPattern)){
 				$(this).parent().find('span.input-errors .numbers').remove();
 			} else if( (!$(this).val().match(numbersPattern)) && ($("li.numbers").length === 0) ){
-				$(this).parent().find('span.input-errors ul').append("<li class='numbers'>Must include at least 3 Numbers</li>")
+				$(this).parent().find('span.input-errors ul').append("<li class='numbers'>Must include at least 3 Numbers</li>");
 			}
 			var specialPattern = /(?=(.*[!#$%^&+=])).{1,}/;
 			if($(this).val().match(specialPattern)){
 				$(this).parent().find('span.input-errors .special').remove();
 			} else if( (!$(this).val().match(specialPattern)) && ($("li.special").length === 0) ){
-				$(this).parent().find('span.input-errors ul').append("<li class='special'>Must include at least 1 Special Character</li>")
+				$(this).parent().find('span.input-errors ul').append("<li class='special'>Must include at least 1 Special Character</li>");
 			}
 
 			if($(this).val() === $('#confirmPassword').val()){
@@ -153,7 +153,7 @@ $(document).ready(function(){
 				$(this).parent().find('span.input-errors ul').append(
 						"<li class='required'>This is required</li>"+
 						"<li class='match'>Password must match</li>"
-						)
+						);
 				}
 		}).blur(function(){
 
@@ -183,11 +183,7 @@ $("#submitButton").click(function(){
 var mainBox = document.getElementById("mainbox");
 var mainImage = $("#tablettop").css("background-image");
 
-  if (ValidFirstName === true 
-  	// && ValidLastName === true 
-  	// && ValidEmail === true 
-  	// && ValidPassword === true 
-  	// && ValidConfirmPassword === true 
+  if (ValidFirstName === true && ValidLastName === true && ValidEmail === true && ValidPassword === true && ValidConfirmPassword === true 
   	){
     $("body").css("overflow", "auto");
     $(mainBox).hide();
@@ -195,4 +191,4 @@ var mainImage = $("#tablettop").css("background-image");
  
     
   }
-})
+});
