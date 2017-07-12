@@ -1,3 +1,5 @@
+
+
 	var ValidFirstName = false;
 	var ValidLastName = false;
 	var ValidEmail = false;
@@ -5,7 +7,14 @@
 	var ValidConfirmPassword = false;
 
 $(document).ready(function(){
+ //    $('html').animate({scrollTop:0}, 1);
+ //    $('body').animate({scrollTop:0}, 1);
 
+ //    $(window).on('load', function() {
+	//     setTimeout(function(){
+	//         $('html, body').scrollTop(0);
+	//     }, 0);
+	// });
 	
 
 	// //When the submit button is pressed
@@ -197,10 +206,10 @@ console.log(mainImage);
 
 	console.log("this works");
   if (ValidFirstName === true 
-  	&& ValidLastName === true 
-  	&& ValidEmail === true 
-  	&& ValidPassword === true 
-  	&& ValidConfirmPassword === true 
+  	// && ValidLastName === true 
+  	// && ValidEmail === true 
+  	// && ValidPassword === true 
+  	// && ValidConfirmPassword === true 
   	){
     console.log("true");
     $("body").css("overflow", "auto");

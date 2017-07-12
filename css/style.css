@@ -3,8 +3,6 @@ body{
 	font-family:'Open Sans', sans-serif;
 	font-weight: regular;
 	/*overflow: hidden;*/
-
-	
 }
 
 h1{
@@ -25,7 +23,6 @@ h1{
 	color: #ffffff;
 	margin-bottom: 250px;
 	
-
 }
 .input-errors{
   color:#F8C113;
@@ -125,27 +122,27 @@ li{
 }
 
 .control[data-filter=".nelson"]{
-	color: #91e6c7;
+	
 }
 
 .control[data-filter=".kaikoura"]{
-	color: #5ecdde;
+	
 }
 
 .control[data-filter=".christchurch"]{
-	color: #d595aa;
+	
 }
 
 .control[data-filter=".queenstown"]{
-	color: #5ecdde;
+	
 }
 
 .control[data-filter=".wanaka"]{
-	color: #d595aa;
+	
 }
 
 .control[data-filter="none"]{
-	color: #fff;
+	
 }
 
 .control:hover{
@@ -229,15 +226,7 @@ html, body {
 #totalPrice{
 	font-size: 24px;
 }
-.button{
-	padding: 15px;
-	font-size: 15px;
-	margin: 2px;
-	border-radius: 5px;
-	color:#ffffff;
-	background-color:#0091f9;
-	/*border-color: #365bc9;*/
-}
+
 
 .buttonlo{
 	padding: 15px;
@@ -246,7 +235,7 @@ html, body {
 	border-radius: 5px;
 	color:#ffffff;
 	background-color:#0091f9;
-	/*border-color: #365bc9;*/
+	
 }
 
 

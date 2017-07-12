@@ -1,3 +1,5 @@
+window.scrollTo(0, 0);
+
 var containerEl = document.querySelector('.container');
 
             var mixer = mixitup(containerEl, {
