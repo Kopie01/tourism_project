@@ -1,19 +1,18 @@
-
-
 var containerEl = document.querySelector('.container');
 
 var mixer = mixitup(containerEl, {
-    controls: {
-                 toggleLogic: 'and'
+                    controls: {
+                    toggleLogic: 'and'
                 }
             });
 
-var typeVenue= new Array();
-typeVenue["none"]=0;
-typeVenue["hostel"]=30;
-typeVenue["hotel"]=78.50;
-typeVenue["motel"]=45;
-typeVenue["house"]=60;
+ var typeVenue= new Array();
+ typeVenue["none"]=0;
+ typeVenue["hostel"]=30;
+ typeVenue["hotel"]=78.50;
+ typeVenue["motel"]=45;
+ typeVenue["house"]=60;
+
 
  var numberN= new Array();
  numberN["none"]=0;
@@ -32,6 +31,11 @@ typeVenue["house"]=60;
  numberN["thirteen"]=13;
  numberN["fourteen"]=14;
  numberN["fifteen"]=15;
+
+var places = [];
+var multiNames = [];
+var startName;
+var endName;
 
 
 
@@ -91,6 +95,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 }
 
 // // calculation javascript
+
+
  
 //This function finds the number of nights based on the 
 //drop down selection
@@ -132,6 +138,8 @@ function getGuestNumbers()
     return guestNumbers;
 }
 
+
+        
 function calculateTotal()
 {
     //get the total price by calling the functions
@@ -151,10 +159,7 @@ function calculateTotal()
 
 
 // Code to link places to map
-var places = [];
-var multiNames = [];
-var startName;
-var endName;
+
 
 
 $("#start").change(function(){
@@ -167,10 +172,12 @@ $("#start").change(function(){
   });
 
 
+  
 });
 
 $("#waypoints").change(function(){
   var selectedOptions = $(this).val();
+
 
   $(selectedOptions).each(function(id, value){
     $("#end option[value=\""+ value +"\"").removeAttr("selected").hide();
@@ -321,8 +328,7 @@ if (selectedVenue === "motel"){
 
   $("#nelsonNights option[value='one'],[value='two'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
   $("#nelsonNights option[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").show();
-  $(".nelsonHotel").hide();
-  
+ 
 }else if (selectedVenue === "hotel"){
   $("#nelsonNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five']").show();
   $("#nelsonNights option[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").hide();
@@ -471,7 +477,6 @@ if (selectedVenue === "motel"){
   $("#wanakaNights option[value='one'],[value='two'],[value='eleven'],[value='twelve'],[value='thirteen'],[value='fourteen'],[value='fifteen']").hide();
   $("#wanakaNights option[value='three'],[value='four'],[value='five'],[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").show();
  
-
 }else if (selectedVenue === "hotel"){
   $("#wanakaNights option[value='one'],[value='two'],[value='three'],[value='four'],[value='five']").show();
   $("#wanakaNights option[value='six'],[value='seven'],[value='eight'],[value='nine'],[value='ten']").hide();
@@ -495,3 +500,4 @@ else{
 }
 
 })
+

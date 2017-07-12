@@ -258,50 +258,7 @@
         }
     })();
 
-    /**
-     * The `mixitup()` "factory" function creates and returns individual instances
-     * of MixItUp, known as "mixers", on which API methods can be called.
-     *
-     * When loading MixItUp via a script tag, the factory function is accessed
-     * via the global variable `mixitup`. When using a module loading
-     * system (e.g. ES2015, CommonJS, RequireJS), the factory function is
-     * exported into your module when you require the MixItUp library.
-     *
-     * @example
-     * mixitup(container [,config] [,foreignDoc])
-     *
-     * @example <caption>Example 1: Creating a mixer instance with an element reference</caption>
-     * var containerEl = document.querySelector('.container');
-     *
-     * var mixer = mixitup(containerEl);
-     *
-     * @example <caption>Example 2: Creating a mixer instance with a selector string</caption>
-     * var mixer = mixitup('.container');
-     *
-     * @example <caption>Example 3: Passing a configuration object</caption>
-     * var mixer = mixitup(containerEl, {
-     *     animation: {
-     *         effects: 'fade scale(0.5)'
-     *     }
-     * });
-     *
-     * @example <caption>Example 4: Passing an iframe reference</caption>
-     * var mixer = mixitup(containerEl, config, foreignDocument);
-     *
-     * @global
-     * @namespace
-     * @public
-     * @kind        function
-     * @since       3.0.0
-     * @param       {(Element|string)}  container
-     *      A DOM element or selector string representing the container(s) on which to instantiate MixItUp.
-     * @param       {object}            [config]
-     *      An optional "configuration object" used to customize the behavior of the MixItUp instance.
-     * @param       {object}            [foreignDoc]
-     *      An optional reference to a `document`, which can be used to control a MixItUp instance in an iframe.
-     * @return      {mixitup.Mixer}
-     *      A "mixer" object holding the MixItUp instance.
-     */
+    
 
     mixitup = function(container, config, foreignDoc) {
         var el                  = null,
@@ -328,8 +285,7 @@
         } else if (container && typeof container === 'object' && h.isElement(container, doc)) {
             elements = [container];
         } else if (container && typeof container === 'object' && container.length) {
-            // Although not documented, the container may also be an array-like list of
-            // elements such as a NodeList or jQuery collection, is returnCollection is true
+            
 
             elements = container;
         } else {
@@ -385,38 +341,6 @@
         return output;
     };
 
-    /**
-     * The `.use()` static method is used to extend the functionality of mixitup with compatible
-     * extensions and libraries in an environment with modular scoping e.g. ES2015, CommonJS, or RequireJS.
-     *
-     * You need only call the `.use()` function once per project, per extension, as module loaders
-     * will cache a single reference to MixItUp inclusive of all changes made.
-     *
-     * @example
-     * mixitup.use(extension)
-     *
-     * @example <caption>Example 1: Extending MixItUp with the Pagination Extension</caption>
-     *
-     * import mixitup from 'mixitup';
-     * import mixitupPagination from 'mixitup-pagination';
-     *
-     * mixitup.use(mixitupPagination);
-     *
-     * // All mixers created by the factory function in all modules will now
-     * // have pagination functionality
-     *
-     * var mixer = mixitup('.container');
-     *
-     * @public
-     * @name     use
-     * @memberof mixitup
-     * @kind     function
-     * @static
-     * @since    3.0.0
-     * @param    {*}  extension   A reference to the extension or library to be used.
-     * @return   {void}
-     */
-
     mixitup.use = function(extension) {
         mixitup.Base.prototype.callActions.call(mixitup, 'beforeUse', arguments);
 
@@ -444,40 +368,17 @@
     mixitup.extensions  = {};
     mixitup.libraries   = {};
 
-    /**
-     * @private
-     */
 
     h = {
 
-        /**
-         * @private
-         * @param   {HTMLElement}   el
-         * @param   {string}        cls
-         * @return  {boolean}
-         */
 
         hasClass: function(el, cls) {
             return !!el.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
         },
 
-        /**
-         * @private
-         * @param   {HTMLElement}   el
-         * @param   {string}        cls
-         * @return  {void}
-         */
-
         addClass: function(el, cls) {
             if (!this.hasClass(el, cls)) el.className += el.className ? ' ' + cls : cls;
         },
-
-        /**
-         * @private
-         * @param   {HTMLElement}   el
-         * @param   {string}        cls
-         * @return  {void}
-         */
 
         removeClass: function(el, cls) {
             if (this.hasClass(el, cls)) {
@@ -487,17 +388,6 @@
             }
         },
 
-        /**
-         * Merges the properties of the source object onto the
-         * target object. Alters the target object.
-         *
-         * @private
-         * @param   {object}    destination
-         * @param   {object}    source
-         * @param   {boolean}   [deep=false]
-         * @param   {boolean}   [handleErrors=false]
-         * @return  {void}
-         */
 
         extend: function(destination, source, deep, handleErrors) {
             var sourceKeys  = [],
@@ -552,12 +442,6 @@
             return destination;
         },
 
-        /**
-         * @private
-         * @param   {Error}  err
-         * @param   {object} destination
-         * @return  {void}
-         */
 
         handleExtendError: function(err, destination) {
             var re                  = /property "?(\w*)"?[,:] object/i,
@@ -603,11 +487,6 @@
             throw err;
         },
 
-        /**
-         * @private
-         * @param   {string} str
-         * @return  {function}
-         */
 
         template: function(str) {
             var re          = /\${([\w]*)}/g,
@@ -632,14 +511,6 @@
             };
         },
 
-        /**
-         * @private
-         * @param   {HTMLElement}   el
-         * @param   {string}        type
-         * @param   {function}      fn
-         * @param   {boolean}       useCapture
-         * @return  {void}
-         */
 
         on: function(el, type, fn, useCapture) {
             if (!el) return;
@@ -657,13 +528,6 @@
             }
         },
 
-        /**
-         * @private
-         * @param   {HTMLElement}   el
-         * @param   {string}        type
-         * @param   {function}      fn
-         * @return  {void}
-         */
 
         off: function(el, type, fn) {
             if (!el) return;
@@ -676,13 +540,6 @@
             }
         },
 
-        /**
-         * @private
-         * @param   {string}      eventType
-         * @param   {object}      detail
-         * @param   {Document}    [doc]
-         * @return  {CustomEvent}
-         */
 
         getCustomEvent: function(eventType, detail, doc) {
             var event = null;
