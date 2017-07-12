@@ -117,32 +117,24 @@ li{
 	margin-bottom: 10px;
 	font-size: 16px;
 
-
-	
 }
 
 .control[data-filter=".nelson"]{
-	
 }
 
 .control[data-filter=".kaikoura"]{
-	
 }
 
 .control[data-filter=".christchurch"]{
-	
 }
 
 .control[data-filter=".queenstown"]{
-	
 }
 
 .control[data-filter=".wanaka"]{
-	
 }
 
 .control[data-filter="none"]{
-	
 }
 
 .control:hover{
@@ -151,12 +143,10 @@ li{
 
 button:focus{
 	outline: 0;
-
 }
 
 .mixitup-control-active{
 	background-color: #F8C113;
-	
 	color: black !important;
 }
 
@@ -166,8 +156,6 @@ button:focus{
 	width: 800px;
 	height: 600px;
 	margin-top: 40px;
-
-	
 }
 
 
@@ -188,11 +176,13 @@ button:focus{
 #right-panel i {
   font-size: 12px;
 }
+
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
+
 #map {
   height: 100%;
   float: left;
@@ -200,6 +190,7 @@ html, body {
   height: 100%;
   border-radius: 5px;
 }
+
 #right-panel {
   margin: 20px;
   border-width: 2px;
@@ -209,6 +200,7 @@ html, body {
   text-align: left;
   padding-top: 0;
 }
+
 #directions-panel {
   margin-top: 10px;
   background:rgba(255, 255, 255, 0.7);
@@ -217,8 +209,6 @@ html, body {
   height: 174px;
   color: black;
   border-radius: 5px;
-
-
 }
 
 /*calculation section*/
@@ -227,7 +217,6 @@ html, body {
 	font-size: 24px;
 }
 
-
 .buttonlo{
 	padding: 15px;
 	font-size: 15px;
@@ -235,9 +224,7 @@ html, body {
 	border-radius: 5px;
 	color:#ffffff;
 	background-color:#0091f9;
-	
 }
-
 
 #nelsonPanel, #kaikouraPanel, #queenstownPanel, #christchurchPanel, #wanakaPanel{
 	display: none;
@@ -246,10 +233,7 @@ html, body {
 	border-radius: 5px;
 	width: 550px;
 	margin-top: 20px;
-	
-
 }
-
 
 #submitButton{
 	width:210px;
@@ -285,8 +269,6 @@ select{
 	background-repeat:no-repeat;
 	border-color: none;
 	padding: 20px;
-
-
 }
 
 

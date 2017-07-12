@@ -1,13 +1,37 @@
-window.scrollTo(0, 0);
+
 
 var containerEl = document.querySelector('.container');
 
-            var mixer = mixitup(containerEl, {
-                controls: {
-                    toggleLogic: 'and'
+var mixer = mixitup(containerEl, {
+    controls: {
+                 toggleLogic: 'and'
                 }
             });
 
+var typeVenue= new Array();
+typeVenue["none"]=0;
+typeVenue["hostel"]=30;
+typeVenue["hotel"]=78.50;
+typeVenue["motel"]=45;
+typeVenue["house"]=60;
+
+ var numberN= new Array();
+ numberN["none"]=0;
+ numberN["one"]=1;
+ numberN["two"]=2;
+ numberN["three"]=3;
+ numberN["four"]=4;
+ numberN["five"]=5;
+ numberN["six"]=6;
+ numberN["seven"]=7;
+ numberN["eight"]=8;
+ numberN["nine"]=9;
+ numberN["ten"]=10;
+ numberN["eleven"]=11;
+ numberN["twelve"]=12;
+ numberN["thirteen"]=13;
+ numberN["fourteen"]=14;
+ numberN["fifteen"]=15;
 
 
 
@@ -67,32 +91,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 }
 
 // // calculation javascript
-
- var typeVenue= new Array();
- typeVenue["none"]=0;
- typeVenue["hostel"]=30;
- typeVenue["hotel"]=78.50;
- typeVenue["motel"]=45;
- typeVenue["house"]=60;
-
-
- var numberN= new Array();
- numberN["none"]=0;
- numberN["one"]=1;
- numberN["two"]=2;
- numberN["three"]=3;
- numberN["four"]=4;
- numberN["five"]=5;
- numberN["six"]=6;
- numberN["seven"]=7;
- numberN["eight"]=8;
- numberN["nine"]=9;
- numberN["ten"]=10;
- numberN["eleven"]=11;
- numberN["twelve"]=12;
- numberN["thirteen"]=13;
- numberN["fourteen"]=14;
- numberN["fifteen"]=15;
  
 //This function finds the number of nights based on the 
 //drop down selection
@@ -117,16 +115,9 @@ function getNumber(name)
 function getVenueType(name)
 {
     var venueType=0;
-    //reference to the form id="venue"
     var theForm = document.forms["totalCost"];
-    //reference to the select id="venue"
-     var selectedVenue = theForm.elements[name +"Venue"];
-     
-    //set guest number equal to value user chose
-    //For example numberGuests["five".value] would be equal to 5
+    var selectedVenue = theForm.elements[name +"Venue"];
     venueType = typeVenue[selectedVenue.value];
-
-    //return venueType
     return venueType;
 }
 
@@ -135,21 +126,12 @@ function getVenueType(name)
 function getGuestNumbers()
 {
     var guestNumbers=0;
-    //reference to the form id="guests"
     var theForm = document.forms["totalCost"];
-    //reference to the select id="number"
-     var selectedNumber = theForm.elements["number"];
-     
-    //set guest number equal to value user chose
-    //For example numberN["five".value] would be equal to 5
+    var selectedNumber = theForm.elements["number"];
     guestNumbers = numberN[selectedNumber.value];
-
-    //return guestNumbers
     return guestNumbers;
 }
 
-
-        
 function calculateTotal()
 {
     //get the total price by calling the functions
@@ -185,21 +167,16 @@ $("#start").change(function(){
   });
 
 
-  
 });
 
 $("#waypoints").change(function(){
   var selectedOptions = $(this).val();
-
 
   $(selectedOptions).each(function(id, value){
     $("#end option[value=\""+ value +"\"").removeAttr("selected").hide();
   });
   
 });
-
-
-
 
 
 
@@ -518,97 +495,3 @@ else{
 }
 
 })
-
-
-
-
-
-
-
-var nelsonflag = false;
-var kaikouraflag = false;
-var christchurchflag = false;
-var queenstownflag = false;
-var wanakaflag = false;
-
-
-$("#nelsonbutton").click(function(){
-  var nelsonlist = document.getElementById("nelsonPanel");
-  if (nelsonflag === false) {
-    $(nelsonlist).show();
-    $("#nelsonbutton").css("background-color","#F8C113");
-    nelsonflag = true;
-  }else{
-    $(nelsonlist).hide();
-    $("#nelsonbutton").css("background-color","#0091f9");
-    nelsonflag = false;
-  }
-})
-
-$("#kaikourabutton").click(function(){
-  var kaikouralist = document.getElementById("kaikouraPanel");
-  if (kaikouraflag === false) {
-    $(kaikouralist).show();
-    $("#kaikourabutton").css("background-color","#F8C113");
-    kaikouraflag = true;
-  }else{
-    $(kaikouralist).hide();
-    $("#kaikourabutton").css("background-color","#0091f9");
-    kaikouraflag = false;
-  }
-})
-
-$("#christchurchbutton").click(function(){
-  var christchurchlist = document.getElementById("christchurchPanel");
-  if (christchurchflag === false) {
-    $(christchurchlist).show();
-    $("#christchurchbutton").css("background-color","#F8C113");
-    christchurchflag = true;
-  }else{
-    $(christchurchlist).hide();
-    $("#christchurchbutton").css("background-color","#0091f9");
-    christchurchflag = false;
-  }
-})
-
-$("#queenstownbutton").click(function(){
-  var queenstownlist = document.getElementById("queenstownPanel");
-  if (queenstownflag === false) {
-    $(queenstownlist).show();
-    $("#queenstownbutton").css("background-color","#F8C113");
-    queenstownflag = true;
-  }else{
-    $(queenstownlist).hide();
-    $("#queenstownbutton").css("background-color","#0091f9");
-    queenstownflag = false;
-  }
-})
-
-$("#wanakabutton").click(function(){
-  var wanakalist = document.getElementById("wanakaPanel");
-  if (wanakaflag === false) {
-    $(wanakalist).show();
-    $("#wanakabutton").css("background-color","#F8C113");
-    wanakaflag = true;
-  }else{
-    $(wanakalist).hide();
-    $("#wanakabutton").css("background-color","#0091f9");
-    wanakaflag = false;
-  }
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

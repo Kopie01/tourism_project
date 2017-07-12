@@ -17,12 +17,7 @@ $(document).ready(function(){
 	// });
 	
 
-	// //When the submit button is pressed
-	// $("#submitButton").click(function(event){
-	// 	event.preventDefault();
-	// });
-
-	//Blur is when you have left an element
+	// Validate First Name
 	$("#firstName").blur(function(){
 		var firstNameErrors = $(this).parent().find('span.input-errors');
 		firstNameErrors.empty();
@@ -31,11 +26,7 @@ $(document).ready(function(){
 			firstNameErrors.text("This is required").removeClass("success").addClass("error");
 			return;
 		}
-		// //Min Length 5
-		// if($(this).val().length < 5){
-		// 	firstNameErrors.text("This field requires at least 5 characters").removeClass("success").addClass("error");
-		// 	return;
-		// }
+		
 		// Max Length 20
 		if($(this).val().length > 20){
 			firstNameErrors.text("This field cannot be more than 20 characters").removeClass("success").addClass("error");
@@ -48,7 +39,6 @@ $(document).ready(function(){
 
 	//Validate Last Name
 
-	//Blur is when you have left an element
 	$("#lastname").blur(function(){
 		var lastNameErrors = $(this).parent().find('span.input-errors');
 		lastNameErrors.empty();
@@ -57,11 +47,7 @@ $(document).ready(function(){
 			lastNameErrors.text("This is required").removeClass("success").addClass("error");
 			return;
 		}
-		// //Min Length 5
-		// if($(this).val().length < 5){
-		// 	firstNameErrors.text("This field requires at least 5 characters").removeClass("success").addClass("error");
-		// 	return;
-		// }
+		
 		//Max Length 20
 		if($(this).val().length > 20){
 			lastNameErrors.text("This field cannot be more than 20 characters").removeClass("success").addClass("error");
@@ -105,11 +91,7 @@ $(document).ready(function(){
 	});
 
 
-
-
-
 	//Validate Password
-	//Focus is when you are actually in an element
 	$("#password")
 		.focus(function(){
 			if($(this).val().length === 0){
@@ -199,24 +181,18 @@ $("#submitButton").click(function(){
 			event.preventDefault();
 
 var mainBox = document.getElementById("mainbox");
-// var mainPage = document.getElementById("mainPage");
-// var mapSection = document.getElementById("mapSection");
 var mainImage = $("#tablettop").css("background-image");
-console.log(mainImage);
 
-	console.log("this works");
   if (ValidFirstName === true 
   	// && ValidLastName === true 
   	// && ValidEmail === true 
   	// && ValidPassword === true 
   	// && ValidConfirmPassword === true 
   	){
-    console.log("true");
     $("body").css("overflow", "auto");
     $(mainBox).hide();
     $(mainImage).hide();
-    // $(mainPage).show();
-    // $(mapSection).show();
+ 
     
   }
 })
