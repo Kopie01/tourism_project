@@ -183,7 +183,11 @@ $("#submitButton").click(function(){
 var mainBox = document.getElementById("mainbox");
 var mainImage = $("#tablettop").css("background-image");
 
-  if (ValidFirstName === true && ValidLastName === true && ValidEmail === true && ValidPassword === true && ValidConfirmPassword === true 
+  if (ValidFirstName === true 
+  	// && ValidLastName === true 
+  	// && ValidEmail === true 
+  	// && ValidPassword === true 
+  	// && ValidConfirmPassword === true 
   	){
     $("body").css("overflow", "auto");
     $(mainBox).hide();

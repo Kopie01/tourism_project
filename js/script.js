@@ -33,9 +33,7 @@ var mixer = mixitup(containerEl, {
  numberN["fifteen"]=15;
 
 var places = [];
-var multiNames = [];
-var startName;
-var endName;
+
 
 
 
@@ -199,21 +197,16 @@ $("#submit").click(function(){
   for (var i = 0; i < waypoints.length; i++) {
     places.push(waypoints[i]);
   }
-  console.log(places);
   var newPlaces = [];
 
   for (var i = 0; i< places.length; i++){
 
-    console.log();
-
     var name = places[i].split(",")[0];
     name = name.toLowerCase();
     newPlaces.push(name);
-    console.log(places)
   }
 
   places = newPlaces;
-  console.log(places);
 
   for (var i = 0; i< places.length; i++) {
   
@@ -221,7 +214,7 @@ $("#submit").click(function(){
   
 }
   
-})
+});
 
 // Code to change Accommodation options based on number of guests selected
 
@@ -229,8 +222,6 @@ $("#submit").click(function(){
 $("#number").change(function(){
 
 var selectedNoGuests = $(this).val();
-console.log(selectedNoGuests);
-
 
 // Nelson
 if (selectedNoGuests === "one" || selectedNoGuests === "five" || selectedNoGuests === "six"){
@@ -314,7 +305,7 @@ if (selectedNoGuests === "five" || selectedNoGuests === "six"){
 
 
 
-})
+});
 
 // Code to change Accommodation options based on number of nights selected for Nelson
 
@@ -322,7 +313,6 @@ if (selectedNoGuests === "five" || selectedNoGuests === "six"){
 $("#nelsonVenue").change(function(){
 
 var selectedVenue = $(this).val();
-console.log(selectedVenue);
 
 if (selectedVenue === "motel"){
 
@@ -351,7 +341,7 @@ else{
 
 }
 
-})
+});
 
 // Code to change Accommodation options based on number of nights selected for Kaikoura
 
@@ -359,7 +349,6 @@ else{
 $("#kaikouraVenue").change(function(){
 
 var selectedVenue = $(this).val();
-console.log(selectedVenue);
 
 if (selectedVenue === "motel"){
 
@@ -388,7 +377,7 @@ else{
 
 }
 
-})
+});
 
 // Code to change Accommodation options based on number of nights selected for Christchurch
 
@@ -396,7 +385,6 @@ else{
 $("#christchurchVenue").change(function(){
 
 var selectedVenue = $(this).val();
-console.log(selectedVenue);
 
 if (selectedVenue === "motel"){
 
@@ -425,7 +413,7 @@ else{
 
 }
 
-})
+});
 
 // Code to change Accommodation options based on number of nights selected for Queenstown
 
@@ -433,7 +421,6 @@ else{
 $("#queenstownVenue").change(function(){
 
 var selectedVenue = $(this).val();
-console.log(selectedVenue);
 
 if (selectedVenue === "motel"){
 
@@ -462,7 +449,7 @@ else{
 
 }
 
-})
+});
 
 // Code to change Accommodation options based on number of nights selected for Wanaka
 
@@ -470,7 +457,6 @@ else{
 $("#wanakaVenue").change(function(){
 
 var selectedVenue = $(this).val();
-console.log(selectedVenue);
 
 if (selectedVenue === "motel"){
 
@@ -499,5 +485,5 @@ else{
 
 }
 
-})
+});
 
