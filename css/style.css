@@ -1,7 +1,7 @@
 /*full document style*/
 body{
 	font-family:'Open Sans', sans-serif;
-	font-weight: regular;
+	font-weight: normal;
 	/*overflow: hidden;*/
 }
 
@@ -267,7 +267,6 @@ select{
 	border-radius: 5px;
 	background-image: url("../images/beach1.jpg");
 	background-repeat:no-repeat;
-	border-color: none;
 	padding: 20px;
 }
 
